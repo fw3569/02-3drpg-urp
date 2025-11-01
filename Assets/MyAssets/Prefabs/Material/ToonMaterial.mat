@@ -13,6 +13,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _CULL_OFF
+  - _Toon
   m_InvalidKeywords:
   - _ALPHACLIP_OFF
   - _ENABLEFOO_ON
@@ -48,12 +49,22 @@ Material:
     - _Cutoff: 0.5
     - _EdgeThresholdColor: 0.5
     - _EdgeThresholdDepth: 0.5
+    - _HighLightingIntensity0: 1
+    - _HighLightingIntensity1: 0.8
+    - _HighLightingIntensity2: 0.3
+    - _HighLightingIntensity3: 0
     - _LightThreshold: 0.5
+    - _LightThreshold0: 0.2
+    - _LightThreshold1: -0.3
+    - _LightThreshold2: -0.3
+    - _LightingIntensity0: 0.5
+    - _LightingIntensity1: 0.2
     - _Metallic: 0
     - _Smoothness: 0
     - _Specular: 0
     - _Surface: 0
-    - _Toon: 0
+    - _Toon: 1
+    - _ToonSmoothness: 0.3
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

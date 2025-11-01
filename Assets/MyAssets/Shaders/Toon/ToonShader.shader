@@ -1,8 +1,8 @@
 Shader "Custom/ToonShader" {
   Properties {
     [Toggle(_Toon)] _Toon("Toon", int) = 1
-    [MainColor] _BaseColor("Color", Color) = (1, 1, 1, 1)
-    [MainTexture] _MainTex("BaseColor", 2D) = "white" {}
+    [MainColor] _BaseColor("Base Color", Color) = (1, 1, 1, 1)
+    [MainTexture] _MainTex("Main Texture", 2D) = "white" {}
     _Specular("Specular", Range(0, 1)) = 0.0
     _Metallic("Metallic", Range(0, 1)) = 0.0
     _Smoothness("Smoothness", Range(0, 1)) = 0.0
@@ -10,7 +10,11 @@ Shader "Custom/ToonShader" {
     _Cutoff("Alpha Cutoff", Range(0, 1)) = 0.5
     _Surface("__surface", Float) = 0.0
     [KeywordEnum(Off, Front, Back)] _Cull("Cull Mode", Float) = 2.0
-    _LightThreshold("RampThreshold", Range(0, 1)) = 0.5
+    _LightThreshold0("Light Threshold0", Range(-1, 1)) = 0.2
+    _LightThreshold1("Light Threshold1", Range(-1, 1)) =-0.3
+    _LightingIntensity0("Lighting Intensity0", Range(0, 1)) = 0.5
+    _LightingIntensity1("Lighting Intensity1", Range(0, 1)) = 0.2
+    _ToonSmoothness("Toon Smoothness", Range(0, 1)) = 0.3
     [HideInInspector] _DepthTex("_DepthTex", 2D) = "white" {}
     [HideInInspector] _EdgeThresholdColor("_EdgeThresholdColor", Range(0, 1)) = 0.5
     [HideInInspector] _EdgeThresholdDepth("_EdgeThresholdDepth", Range(0, 1)) = 0.001
@@ -38,11 +42,15 @@ Shader "Custom/ToonShader" {
       float _Cutoff;
       float _Surface;
       int _AlphaClip;
-      float _LightThreshold;
       float _EdgeThresholdColor;
       float _EdgeThresholdDepth;
       float4 _MainTex_TexelSize;
       float4 _DepthTex_TexelSize;
+      float _LightThreshold0;
+      float _LightThreshold1;
+      float _LightingIntensity0;
+      float _LightingIntensity1;
+      float _ToonSmoothness;
       float _Cull;
     CBUFFER_END
     ENDHLSL

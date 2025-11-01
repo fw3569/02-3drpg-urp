@@ -65,22 +65,153 @@ Varyings Vert (Attributes input) {
   // ------------------------------------------------------------------------
   return output;
 }
+
+// Most of following part is copied from Lighting.hlsl
+half3 ToonLightingPhysicallyBased(BRDFData brdfData, BRDFData brdfDataClearCoat,
+  half3 lightColor, half3 lightDirectionWS, float lightAttenuation,
+  half3 normalWS, half3 viewDirectionWS,
+  half clearCoatMask, bool specularHighlightsOff) {
+  half NdotL = dot(normalWS, lightDirectionWS);
+  half3 radiance = lightColor * (lightAttenuation * saturate(NdotL));
+// Step Lighting
+#ifdef _Toon
+  half lightingIntensity;
+  float threshold0 =_LightThreshold0 + 0.5 * _ToonSmoothness * (1 - _LightingIntensity0);
+  float threshold1 =_LightThreshold0 - 0.5 * _ToonSmoothness * (1 - _LightingIntensity0);
+  float threshold2 =_LightThreshold1 + 0.5 * _ToonSmoothness * (_LightingIntensity0 - _LightingIntensity1);
+  float threshold3 =_LightThreshold1 - 0.5 * _ToonSmoothness * (_LightingIntensity0 - _LightingIntensity1);
+  if(NdotL > threshold0) {
+    lightingIntensity = 1;
+  } else if(NdotL > threshold1) {
+    lightingIntensity = lerp(_LightingIntensity0, 1, (NdotL - threshold1) / (threshold0 - threshold1));
+  } else if(NdotL > threshold2) {
+    lightingIntensity = _LightingIntensity0;
+  } else if(NdotL > threshold3) {
+    lightingIntensity = lerp(_LightingIntensity1, _LightingIntensity0, (NdotL - threshold3) / (threshold2 - threshold3));
+  } else {
+    lightingIntensity = _LightingIntensity1;
+  }
+  radiance = lightColor * (lightingIntensity * lightAttenuation);
+#endif
+  half3 brdf = brdfData.diffuse;
+#ifndef _SPECULARHIGHLIGHTS_OFF
+  [branch] if (!specularHighlightsOff) {
+    brdf += brdfData.specular * DirectBRDFSpecular(brdfData, normalWS, lightDirectionWS, viewDirectionWS);
+#if defined(_CLEARCOAT) || defined(_CLEARCOATMAP)
+    half brdfCoat = kDielectricSpec.r * DirectBRDFSpecular(brdfDataClearCoat, normalWS, lightDirectionWS, viewDirectionWS);
+      half NoV = saturate(dot(normalWS, viewDirectionWS));
+      half coatFresnel = kDielectricSpec.x + kDielectricSpec.a * Pow4(1.0 - NoV);
+    brdf = brdf * (1.0 - clearCoatMask * coatFresnel) + brdfCoat * clearCoatMask;
+#endif
+  }
+#endif
+  return brdf * radiance;
+}
+half3 ToonLightingPhysicallyBased(BRDFData brdfData, BRDFData brdfDataClearCoat, Light light, half3 normalWS, half3 viewDirectionWS, half clearCoatMask, bool specularHighlightsOff) {
+  return ToonLightingPhysicallyBased(brdfData, brdfDataClearCoat, light.color, light.direction, light.distanceAttenuation * light.shadowAttenuation, normalWS, viewDirectionWS, clearCoatMask, specularHighlightsOff);
+}
+half3 ToonCalculateLightingColor(LightingData lightingData, half3 albedo) {
+  half3 lightingColor = 0;
+  if (IsOnlyAOLightingFeatureEnabled()) {
+      return lightingData.giColor;
+  }
+  if (IsLightingFeatureEnabled(DEBUGLIGHTINGFEATUREFLAGS_GLOBAL_ILLUMINATION)) {
+      lightingColor += lightingData.giColor;
+  }
+  if (IsLightingFeatureEnabled(DEBUGLIGHTINGFEATUREFLAGS_MAIN_LIGHT)) {
+      lightingColor += lightingData.mainLightColor;
+  }
+  if (IsLightingFeatureEnabled(DEBUGLIGHTINGFEATUREFLAGS_ADDITIONAL_LIGHTS)) {
+      lightingColor += lightingData.additionalLightsColor;
+  }
+  if (IsLightingFeatureEnabled(DEBUGLIGHTINGFEATUREFLAGS_VERTEX_LIGHTING)) {
+      lightingColor += lightingData.vertexLightingColor;
+  }
+  lightingColor *= albedo;
+  if (IsLightingFeatureEnabled(DEBUGLIGHTINGFEATUREFLAGS_EMISSION)) {
+      lightingColor += lightingData.emissionColor;
+  }
+  return lightingColor;
+}
+half4 ToonCalculateFinalColor(LightingData lightingData, half alpha) {
+  half3 finalColor = ToonCalculateLightingColor(lightingData, 1);
+  return half4(finalColor, alpha);
+}
+half4 ToonFragmentPBR(InputData inputData, SurfaceData surfaceData) {
+#if defined(_SPECULARHIGHLIGHTS_OFF)
+  bool specularHighlightsOff = true;
+#else
+  bool specularHighlightsOff = false;
+#endif
+  BRDFData brdfData;
+  InitializeBRDFData(surfaceData, brdfData);
+#if defined(DEBUG_DISPLAY)
+  half4 debugColor;
+  if (CanDebugOverrideOutputColor(inputData, surfaceData, brdfData, debugColor)) {
+    return debugColor;
+  }
+#endif
+  BRDFData brdfDataClearCoat = CreateClearCoatBRDFData(surfaceData, brdfData);
+  half4 shadowMask = CalculateShadowMask(inputData);
+  AmbientOcclusionFactor aoFactor = CreateAmbientOcclusionFactor(inputData, surfaceData);
+  uint meshRenderingLayers = GetMeshRenderingLayer();
+  Light mainLight = GetMainLight(inputData, shadowMask, aoFactor);
+  MixRealtimeAndBakedGI(mainLight, inputData.normalWS, inputData.bakedGI);
+  LightingData lightingData = CreateLightingData(inputData, surfaceData);
+  lightingData.giColor = GlobalIllumination(brdfData, brdfDataClearCoat, surfaceData.clearCoatMask,
+                                            inputData.bakedGI, aoFactor.indirectAmbientOcclusion, inputData.positionWS,
+                                            inputData.normalWS, inputData.viewDirectionWS, inputData.normalizedScreenSpaceUV);
+#ifdef _LIGHT_LAYERS
+  if (IsMatchingLightLayer(mainLight.layerMask, meshRenderingLayers))
+#endif
+  {
+    lightingData.mainLightColor = ToonLightingPhysicallyBased(brdfData, brdfDataClearCoat,
+                                                          mainLight,
+                                                          inputData.normalWS, inputData.viewDirectionWS,
+                                                          surfaceData.clearCoatMask, specularHighlightsOff);
+  }
+#if defined(_ADDITIONAL_LIGHTS)
+  uint pixelLightCount = GetAdditionalLightsCount();
+#if USE_FORWARD_PLUS
+  [loop] for (uint lightIndex = 0; lightIndex < min(URP_FP_DIRECTIONAL_LIGHTS_COUNT, MAX_VISIBLE_LIGHTS); lightIndex++) {
+    FORWARD_PLUS_SUBTRACTIVE_LIGHT_CHECK
+    Light light = GetAdditionalLight(lightIndex, inputData, shadowMask, aoFactor);
+#ifdef _LIGHT_LAYERS
+    if (IsMatchingLightLayer(light.layerMask, meshRenderingLayers))
+#endif
+    {
+      lightingData.additionalLightsColor += LightingPhysicallyBased(brdfData, brdfDataClearCoat, light,
+                                                                    inputData.normalWS, inputData.viewDirectionWS,
+                                                                    surfaceData.clearCoatMask, specularHighlightsOff);
+    }
+  }
+  #endif
+  LIGHT_LOOP_BEGIN(pixelLightCount)
+    Light light = GetAdditionalLight(lightIndex, inputData, shadowMask, aoFactor);
+#ifdef _LIGHT_LAYERS
+    if (IsMatchingLightLayer(light.layerMask, meshRenderingLayers))
+#endif
+    {
+      lightingData.additionalLightsColor += LightingPhysicallyBased(brdfData, brdfDataClearCoat, light,
+                                                                    inputData.normalWS, inputData.viewDirectionWS,
+                                                                    surfaceData.clearCoatMask, specularHighlightsOff);
+    }
+  LIGHT_LOOP_END
+#endif
+  #if defined(_ADDITIONAL_LIGHTS_VERTEX)
+  lightingData.vertexLightingColor += inputData.vertexLighting * brdfData.diffuse;
+#endif
+#if REAL_IS_HALF
+  return min(ToonCalculateFinalColor(lightingData, surfaceData.alpha), HALF_MAX);
+#else
+  return ToonCalculateFinalColor(lightingData, surfaceData.alpha);
+#endif
+}
+// --------------------------------------------------------------------------
+
 half4 Frag (Varyings input) : SV_Target0 {
   half4 color = tex2D(_MainTex, input.uv) * _BaseColor;
   clip(color.a - _AlphaClip * _Cutoff);
-  float3 lightDir = normalize(_MainLightPosition.xyz);
-  float3 normal = normalize(input.normalWS);
-  float light = dot(normal, lightDir);
-#ifdef _CULL_OFF
-  light = max(0.0f, light);
-#else
-  light = abs(light);
-#endif
-#ifdef _Toon
-  light = light > _LightThreshold ? 1.0f : 0.3f;
-  color = int4(color * 32);
-  color = (color) / 32.0f;
-#endif
   // Following part is copied from LitForwardPass.hlsl
   InputData inputData = (InputData)0;
   inputData.positionWS = input.positionWS;
@@ -102,7 +233,7 @@ half4 Frag (Varyings input) : SV_Target0 {
   surfaceData.alpha = color.a;
   surfaceData.clearCoatMask = 0;
   surfaceData.clearCoatSmoothness = 1;
-  color = UniversalFragmentPBR(inputData, surfaceData);
+  color = ToonFragmentPBR(inputData, surfaceData);
   // ------------------------------------------------------------------------
   return color;
 }
