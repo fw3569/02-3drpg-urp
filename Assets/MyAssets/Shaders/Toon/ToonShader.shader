@@ -44,8 +44,6 @@ Shader "Custom/ToonShader" {
       int _AlphaClip;
       float _EdgeThresholdColor;
       float _EdgeThresholdDepth;
-      float4 _MainTex_TexelSize;
-      float4 _DepthTex_TexelSize;
       float _LightThreshold0;
       float _LightThreshold1;
       float _LightingIntensity0;

@@ -62,6 +62,7 @@ public class ToonOutlineFeature : ScriptableRendererFeature {
       string passName = "ToonOutlinePostPass";
       var resourceData = frameContext.Get<UniversalResourceData>();
       var textureDesc = resourceData.activeColorTexture.GetDescriptor(renderGraph);
+      textureDesc.name = "OutlinePostTexture";
       var texture = renderGraph.CreateTexture(textureDesc);
       renderGraph.AddBlitPass(resourceData.activeColorTexture, texture, new Vector2(1.0f, 1.0f), new Vector2(0.0f, 0.0f));
       using (var builder = renderGraph.AddRasterRenderPass(passName,

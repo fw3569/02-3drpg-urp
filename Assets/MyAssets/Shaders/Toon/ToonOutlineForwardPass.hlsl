@@ -38,7 +38,7 @@ void Geo(triangle Vertex input[3], inout TriangleStream<Varyings> output) {
   float aspect = _ScreenParams.y / _ScreenParams.x;
   static const float outlineWidth = 0.1f;
   // for smooth width curve
-  static const float outlineCameraBais = 5.0f;
+  static const float outlineCameraBais = 10.0f;
   if(_Cull == 0) {
     Varyings vertex[6];
     [unroll]
