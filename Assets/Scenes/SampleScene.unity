@@ -16,8 +16,8 @@ RenderSettings:
   serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogMode: 2
+  m_FogDensity: 0.06
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -74728,13 +74728,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1330646133821414064, guid: e498dc1c261d7a740957bf0d39e97268, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2768327297126633882, guid: e498dc1c261d7a740957bf0d39e97268, type: 3}
       propertyPath: m_life_gauge
       value: 
       objectReference: {fileID: 1192222367}
+    - target: {fileID: 6242079657159310884, guid: e498dc1c261d7a740957bf0d39e97268, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6817729297957705002, guid: e498dc1c261d7a740957bf0d39e97268, type: 3}
       propertyPath: far clip plane
-      value: 1000
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817729297957705002, guid: e498dc1c261d7a740957bf0d39e97268, type: 3}
+      propertyPath: near clip plane
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 7666594422163823326, guid: e498dc1c261d7a740957bf0d39e97268, type: 3}
       propertyPath: m_LocalPosition.y

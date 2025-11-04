@@ -44,7 +44,8 @@ MonoBehaviour:
   - {fileID: 7833122117494664109}
   - {fileID: 1987550166638969514}
   - {fileID: 1185412016653396539}
-  m_RendererFeatureMap: ad6b866f10d7b46caac2c8975832951b3bea1ad5f26d7310
+  - {fileID: 283636836022714375}
+  m_RendererFeatureMap: ad6b866f10d7b46caac2c8975832951b3bea1ad5f26d73100780591833aeef03
   m_UseNativeRenderPass: 1
   xrSystemData: {fileID: 0}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
@@ -70,6 +71,21 @@ MonoBehaviour:
   m_DepthTextureFormat: 0
   m_AccurateGbufferNormals: 0
   m_IntermediateTextureMode: 0
+--- !u!114 &283636836022714375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4945e93730e73d4aa161a60e2a0ef9a, type: 3}
+  m_Name: FogFeature
+  m_EditorClassIdentifier: 
+  m_Active: 0
+  densityFar: 0.001
+  densityHeight: 0.03
 --- !u!114 &1185412016653396539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 483b6d88998a95141be3197d736701a9, type: 3}
   m_Name: BloomFeature
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   bloomThreshold: 1
   bloomIntensity: 1
 --- !u!114 &1987550166638969514

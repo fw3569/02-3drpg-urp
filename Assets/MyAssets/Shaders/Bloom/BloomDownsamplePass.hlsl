@@ -19,8 +19,8 @@ half4 Frag(Varyings input) : SV_TARGET0 {
       color = max(color, _MainTex.mips[_MipLevel][lowerPositionCS + int2(i, j)].rgb);
     }
   }
-  float luminance = ColorToGray(color);
-  float knee = _BloomThreshold * 0.5;
-  float soft = saturate((luminance - _BloomThreshold + knee) / (2 * knee));
+  half luminance = ColorToGray(color);
+  half knee = _BloomThreshold * 0.5;
+  half soft = saturate((luminance - _BloomThreshold + knee) / (2 * knee));
   return half4(color, 1) * soft;
 }

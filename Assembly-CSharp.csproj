@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Assets\MyAssets\Scripts\Gameplay\Object\Common\AttackBox.cs" />
     <Compile Include="Assets\MyAssets\Scripts\Gameplay\Object\Creature\EnemyBody.cs" />
+    <Compile Include="Assets\MyAssets\Shaders\Fog\FogFeature.cs" />
     <Compile Include="Assets\MyAssets\Scripts\Gameplay\UI\PlayerController.cs" />
     <Compile Include="Assets\MyAssets\Scripts\Gameplay\Animation\AttackBehaviour.cs" />
     <Compile Include="Assets\MyAssets\Shaders\Bloom\BloomFeature.cs" />
@@ -84,6 +85,8 @@
     <None Include="Assets\Polytope Studio\Lowpoly_Environments\Sources\Shaders\PT_Water_Shader.shader" />
     <None Include="Assets\Polytope Studio\Lowpoly_Environments\Sources\Shaders\PT_Vegetation_Flowers_Shader.shader" />
     <None Include="Assets\MyAssets\Shaders\Bloom\BloomShader.shader" />
+    <None Include="Assets\MyAssets\Shaders\Fog\FogPass.hlsl" />
+    <None Include="Assets\MyAssets\Shaders\Fog\FogShader.shader" />
     <None Include="Assets\Stylized NPC - Peasant Nolant\README.txt" />
     <None Include="Assets\MyAssets\Shaders\Toon\ToonShader.shader" />
     <None Include="Assets\MyAssets\Shaders\Toon\ToonOutlineForwardPass.hlsl" />

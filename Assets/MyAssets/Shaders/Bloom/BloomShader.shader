@@ -1,9 +1,9 @@
 Shader "Custom/BloomShader" {
   Properties {
-    [MainTexture] _MainTex("Main Texture", 2D) = "white" {}
+    [HideInInspector] [MainTexture] _MainTex("Main Texture", 2D) = "white" {}
     [HideInInspector] _MipLevel("Main Texture Mip Level", int) = 0
-    [HideInInspector] _BloomThreshold("Bloom Threshold", Range(0, 1)) = 0.7
-    [HideInInspector] _BloomIntensity("Bloom Intensity", Range(0, 1)) = 0.5
+    [HideInInspector] _BloomThreshold("Bloom Threshold", Range(0, 1)) = 1.0
+    [HideInInspector] _BloomIntensity("Bloom Intensity", Range(0, 1)) = 1.0
     [HideInInspector] [KeywordEnum(All, Step0, Step1)] _BlurType("Blur Type", int) = 0
   }
   SubShader {

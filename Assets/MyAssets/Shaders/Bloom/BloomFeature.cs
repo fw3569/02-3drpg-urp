@@ -14,7 +14,6 @@ public class BloomFeature : ScriptableRendererFeature {
     public float bloomIntensity;
     [Serializable]
     class PassData {
-      public RendererListHandle rendererListHandle;
       public Material material;
       public TextureHandle texture1;
       public TextureHandle texture2;
@@ -265,7 +264,7 @@ public class BloomFeature : ScriptableRendererFeature {
   private BloomPass bloomPass;
   public override void Create() {
     bloomPass = new BloomPass() {
-      renderPassEvent = RenderPassEvent.BeforeRenderingPostProcessing,
+      renderPassEvent = RenderPassEvent.BeforeRenderingPostProcessing - 10,
       bloomThreshold = bloomThreshold,
       bloomIntensity = bloomIntensity
     };
