@@ -55,6 +55,7 @@ half3 ToonLightingPhysicallyBased(BRDFData brdfData, BRDFData brdfDataClearCoat,
   half NdotL = dot(normalWS, lightDirectionWS);
   half3 radiance = lightColor * (lightAttenuation * saturate(NdotL));
 // Step Lighting
+// TBD AO
 #ifdef _Toon
   half lightingIntensity;
   float threshold0 =_LightThreshold0 + 0.5 * _ToonSmoothness * (1 - _LightingIntensity0);

@@ -13,7 +13,6 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _CULL_OFF
-  - _Toon
   m_InvalidKeywords:
   - _ALPHACLIP_OFF
   - _ENABLEFOO_ON
@@ -63,7 +62,7 @@ Material:
     - _Smoothness: 0
     - _Specular: 0
     - _Surface: 0
-    - _Toon: 1
+    - _Toon: 0
     - _ToonSmoothness: 0.3
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}

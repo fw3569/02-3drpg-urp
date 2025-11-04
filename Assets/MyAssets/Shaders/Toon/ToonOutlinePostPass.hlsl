@@ -27,8 +27,9 @@ half EdgeValue(Texture2D tex, int2 screenPos) {
   return abs(edgeX) + abs(edgeY);
 }
 half4 Frag (Varyings input) : SV_Target0 {
-  half colorEdgeValue = EdgeValue(_MainTex, input.positionCS.xy);
-  half depthEdgeValue = EdgeValue(_DepthTex, input.positionCS.xy);
+  int2 uv = floor(input.positionCS.xy);
+  half colorEdgeValue = EdgeValue(_MainTex, uv);
+  half depthEdgeValue = EdgeValue(_DepthTex, uv);
   half isEdge = (colorEdgeValue > _EdgeThresholdColor) || (depthEdgeValue > _EdgeThresholdDepth);
-  return half4((1 - isEdge) * _MainTex[input.positionCS.xy].rgb, 1.0);
+  return half4((1 - isEdge) * _MainTex[uv].rgb, 1.0);
 }

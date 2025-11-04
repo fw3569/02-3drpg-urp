@@ -1,4 +1,5 @@
 Texture2D _MainTex;
+SamplerState sampler_MainTex;
 struct Varyings {
   float4 positionCS : SV_POSITION;
 };
@@ -8,42 +9,10 @@ Varyings Vert (uint vertexID : SV_VertexID) {
   output.positionCS = GetFullScreenTriangleVertexPosition(vertexID);
   return output;
 }
+// some rasterization area exceptions with mipmap?
 half4 Frag(Varyings input) : SV_TARGET0 {
-  // sigma = 0.8
-  static const half gaussian_blur[5][5] = {
-    {0.00048090932379052045, 0.005011190227918607, 0.010945445758971118, 0.005011190227918607, 0.00048090932379052045},
-    {0.005011190227918607, 0.05221780127375007, 0.11405416388113371, 0.05221780127375007, 0.005011190227918607},
-    {0.010945445758971118, 0.11405416388113371, 0.24911719722606956, 0.11405416388113371, 0.010945445758971118},
-    {0.005011190227918607, 0.05221780127375007, 0.11405416388113371, 0.05221780127375007, 0.005011190227918607},
-    {0.00048090932379052045, 0.005011190227918607, 0.010945445758971118, 0.005011190227918607, 0.00048090932379052045}
-  };
-  uint width, height, numberOfMipLevels;
-  _MainTex.GetDimensions(_MipLevel, width, height, numberOfMipLevels);
-  int2 upperPositionCS = input.positionCS.xy / 2;
-  half3 color = half3(0, 0, 0);
-  if(_BlurType == 1) {
-    for(int i = 0; i < 5; ++i) {
-      int2 sampleUpperPositionCS = input.positionCS.xy + int2(0, i - 2);
-      sampleUpperPositionCS.y = min(max(sampleUpperPositionCS.y, 0), height);
-      color += _MainTex.mips[_MipLevel][sampleUpperPositionCS].rgb * gaussian_blur[2][i];
-    }
-    return half4(color / 0.4991164165062792, 1.0);
-  } else if(_BlurType == 2) {
-    for(int i = 0; i < 5; ++i) {
-      int2 sampleUpperPositionCS = upperPositionCS + int2(i - 2, 0);
-      sampleUpperPositionCS.x = min(max(sampleUpperPositionCS.x, 0), width);
-      color += _MainTex.mips[_MipLevel][sampleUpperPositionCS].rgb * gaussian_blur[i][2];
-    }
-    return half4(color / 0.4991164165062792 * _BloomIntensity, 1.0);
-  } else {
-    for(int i = 0; i < 5; ++i) {
-      for(int j = 0; j < 5; ++j) {
-        int2 sampleUpperPositionCS = upperPositionCS + int2(i - 2, j - 2);
-        sampleUpperPositionCS.x = min(max(sampleUpperPositionCS.x, 0), width);
-        sampleUpperPositionCS.y = min(max(sampleUpperPositionCS.y, 0), height);
-        color += _MainTex.mips[_MipLevel][sampleUpperPositionCS].rgb * gaussian_blur[i][j];
-      }
-    }
-    return half4(color * _BloomIntensity, 1.0);
-  }
+  float2 samplePoint = (input.positionCS.xy - 1) / 2;
+  uint2 samplePointIndex = floor(samplePoint);
+  float2 samplePointSubcoord = samplePoint - samplePointIndex;
+  return lerp(lerp(_MainTex.mips[_MipLevel][samplePointIndex], _MainTex.mips[_MipLevel][samplePointIndex + uint2(1, 0)], samplePointSubcoord.x), lerp(_MainTex.mips[_MipLevel][samplePointIndex + uint2(0, 1)], _MainTex.mips[_MipLevel][samplePointIndex + uint2(1, 1)], samplePointSubcoord.x), samplePointSubcoord.y) * _BloomIntensity;
 }

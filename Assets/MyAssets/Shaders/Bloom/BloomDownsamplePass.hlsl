@@ -12,7 +12,7 @@ half ColorToGray(half3 color) {
   return dot(color, half3(0.299, 0.587, 0.114));
 }
 half4 Frag(Varyings input) : SV_TARGET0 {
-  int2 lowerPositionCS = input.positionCS.xy * 2;
+  int2 lowerPositionCS = floor(input.positionCS.xy) * 2;
   half3 color = half3(0, 0, 0);
   for(int i = 0; i < 2; ++i) {
     for(int j = 0; j < 2; ++j) {

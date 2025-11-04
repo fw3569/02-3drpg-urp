@@ -94,7 +94,7 @@ public class ToonOutlineFeature : ScriptableRendererFeature {
   private ToonOutlinePass outlinePass;
   public override void Create() {
     outlinePass = new ToonOutlinePass() {
-      renderPassEvent = RenderPassEvent.AfterRenderingTransparents,
+      renderPassEvent = RenderPassEvent.AfterRenderingOpaques,
       outlineType = outlineType,
       edgeThresholdColor = edgeThresholdColor,
       edgeThresholdDepth = edgeThresholdDepth

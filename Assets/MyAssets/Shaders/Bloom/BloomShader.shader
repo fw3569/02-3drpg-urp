@@ -13,12 +13,12 @@ Shader "Custom/BloomShader" {
     Cull Off
     LOD 100
     HLSLINCLUDE
-    #pragma target 3.0
+    #pragma target 4.0
     #pragma vertex Vert
     #pragma fragment Frag
     #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
     CBUFFER_START(UnityPerMaterial)
-      float _MipLevel;
+      int _MipLevel;
       float _BloomThreshold;
       float _BloomIntensity;
       int _BlurType;
@@ -26,6 +26,7 @@ Shader "Custom/BloomShader" {
     ENDHLSL
     Pass {
       Blend Off
+      // TBD Also need blur in downsample to avoid flicker
       Name "BloomDownsamplePass"
       Tags {"LightMode" = "BloomDownsamplePass"}
       HLSLPROGRAM
@@ -33,16 +34,17 @@ Shader "Custom/BloomShader" {
       ENDHLSL
     }
     Pass {
-      Blend One One, One Zero
-      Name "BloomUpsamplePass"
-      Tags {"LightMode" = "BloomUpsamplePass"}
+      Blend Off
+      Name "BloomBlurPass"
+      Tags {"LightMode" = "BloomBlurPass"}
       HLSLPROGRAM
-      #include "./BloomUpsamplePass.hlsl"
+      #include "./BloomBlurPass.hlsl"
       ENDHLSL
     }
     Pass {
-      Blend Off
-      Name "BloomUpsamplePass2"
+      Blend One One, One Zero
+      // Blend Off
+      Name "BloomUpsamplePass"
       Tags {"LightMode" = "BloomUpsamplePass"}
       HLSLPROGRAM
       #include "./BloomUpsamplePass.hlsl"

@@ -1,15 +1,13 @@
 Texture2D<float> _CameraDepthTexture;
 struct Varyings {
-  float4 positionCS  : SV_POSITION;
-  float2 uv          : TEXCOORD0;
-  float4 positionCS2 : TEXCOORD1;
+  float4 positionCS : SV_POSITION;
+  float2 xyCS       : TEXCOORD0;
 };
 
 Varyings Vert (uint vertexID : SV_VertexID) {
   Varyings output;
   output.positionCS = GetFullScreenTriangleVertexPosition(vertexID);
-  output.uv = GetFullScreenTriangleVertexPosition(vertexID);
-  output.positionCS2 = output.positionCS;
+  output.xyCS = output.positionCS.xy;
   return output;
 }
 float Grad(int hash, float x, float y) {
@@ -38,12 +36,12 @@ float Noise(float x, float y){
   float floatx = x - intx;
   int inty = floor(y);
   float floaty = y - inty;
-  intx = (intx % size + size) % size;
-  inty = (inty % size + size) % size;
-  float noise0 = Grad(noiseTex[intx][inty], floatx, floaty);
-  float noise1 = Grad(noiseTex[(intx + 1) % 5][inty], floatx - 1, floaty);
-  float noise2 = Grad(noiseTex[intx][(inty + 1) % 5], floatx, floaty - 1);
-  float noise3 = Grad(noiseTex[(intx + 1) % 5][(inty + 1) % 5], floatx - 1, floaty - 1);
+  uint uintx = (intx % size + size) % size;
+  uint uinty = (inty % size + size) % size;
+  float noise0 = Grad(noiseTex[uintx][uinty], floatx, floaty);
+  float noise1 = Grad(noiseTex[(uintx + 1) % size][uinty], floatx - 1, floaty);
+  float noise2 = Grad(noiseTex[uintx][(uinty + 1) % size], floatx, floaty - 1);
+  float noise3 = Grad(noiseTex[(uintx + 1) % size][(uinty + 1) % size], floatx - 1, floaty - 1);
   float u = fade(floatx);
   float v = fade(floaty);
   return lerp(lerp(noise0, noise1, u), lerp(noise2, noise3, u), v);
@@ -52,14 +50,14 @@ float FogFactor(float l, float h) {
   return exp2(l - h) - 1;
 }
 half4 Frag(Varyings input) : SV_TARGET0 {
-  float depth = _CameraDepthTexture[input.positionCS.xy];
-  float4 positionCS = float4(input.uv, depth, 1.0);
+  float depth = _CameraDepthTexture[floor(input.positionCS.xy)];
+  float4 positionCS = float4(input.xyCS, depth, 1.0);
   float4 positionVS = mul(UNITY_MATRIX_I_P, positionCS);
   positionVS /= positionVS.w;
   float4 positionWS = mul(UNITY_MATRIX_I_V, positionVS);
-  float4 positionCamera = float4(UNITY_MATRIX_I_V[0][3], UNITY_MATRIX_I_V[1][3], UNITY_MATRIX_I_V[2][3], 1);
-  float4 positionFog = positionWS - positionCamera;
-  half fogFactor = FogFactor((positionFog.x * positionFog.x + positionFog.z * positionFog.z) * _DensityFar, positionFog.y * _DensityHeight);
+  float4 positionCameraWS = float4(UNITY_MATRIX_I_V[0][3], UNITY_MATRIX_I_V[1][3], UNITY_MATRIX_I_V[2][3], 1);
+  float4 distanceWS = positionWS - positionCameraWS;
+  half fogFactor = FogFactor((distanceWS.x * distanceWS.x + distanceWS.z * distanceWS.z) * _DensityFar, distanceWS.y * _DensityHeight);
   fogFactor *= (Noise(positionWS.x / 4 + _Time.y, positionWS.z / 4 + _Time.y) + 2) / 4;
   return half4(_Color.rgb * fogFactor, 1);
 }

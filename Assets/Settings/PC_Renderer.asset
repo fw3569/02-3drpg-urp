@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5619820081809852877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eeffdc6b32d1a441b679f30903a87a8, type: 3}
+  m_Name: VolumeLightFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  intensity: 5
+  mieScattering: 0.5
+  extingctionFactor: 0.5
+  blurTimes: 5
 --- !u!114 &-1221216300015846223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,7 +62,8 @@ MonoBehaviour:
   - {fileID: 1987550166638969514}
   - {fileID: 1185412016653396539}
   - {fileID: 283636836022714375}
-  m_RendererFeatureMap: ad6b866f10d7b46caac2c8975832951b3bea1ad5f26d73100780591833aeef03
+  - {fileID: -5619820081809852877}
+  m_RendererFeatureMap: ad6b866f10d7b46caac2c8975832951b3bea1ad5f26d73100780591833aeef0333f61d22696302b2
   m_UseNativeRenderPass: 1
   xrSystemData: {fileID: 0}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
@@ -101,6 +119,7 @@ MonoBehaviour:
   m_Active: 0
   bloomThreshold: 1
   bloomIntensity: 1
+  bloomTimes: 3
 --- !u!114 &1987550166638969514
 MonoBehaviour:
   m_ObjectHideFlags: 0
