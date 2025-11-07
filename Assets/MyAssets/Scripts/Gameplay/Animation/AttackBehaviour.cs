@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class AttackBehaviour : StateMachineBehaviour {
   private GameObject m_weapon;
+  public string skill_id;
   override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
     m_weapon = animator.GetComponent<CreatureBody>().weapon;
     if (m_weapon != null) {
@@ -17,6 +18,10 @@ public class AttackBehaviour : StateMachineBehaviour {
     }
     if (m_weapon != null) {
       m_weapon.GetComponent<Collider>().enabled = false;
+    }
+    if (animator.TryGetComponent(out PlayerAnimationEvents animation_events)) {
+      animation_events.ResetTrail();
+      animation_events.StopSkillEffects(skill_id);
     }
   }
 }

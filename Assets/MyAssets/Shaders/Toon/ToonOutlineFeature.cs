@@ -41,7 +41,7 @@ public class ToonOutlineFeature : ScriptableRendererFeature {
       ) {
         sortingCriteria = SortingCriteria.CommonOpaque,
         renderQueueRange = RenderQueueRange.all,
-        layerMask = ~0,
+        layerMask = ~LayerMask.GetMask("Ignore"),
         overrideShader = Shader.Find("Custom/ToonShader"),
         overrideShaderPassIndex = 1
       };

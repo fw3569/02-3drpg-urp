@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eeffdc6b32d1a441b679f30903a87a8, type: 3}
   m_Name: VolumeLightFeature
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   intensity: 5
   mieScattering: 0.5
   extingctionFactor: 0.5
-  blurTimes: 5
+  blurTimes: 4
 --- !u!114 &-1221216300015846223
 MonoBehaviour:
   m_ObjectHideFlags: 0

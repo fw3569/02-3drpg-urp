@@ -48,14 +48,16 @@
     <Analyzer Include="D:\Unity Projects\Unity Editor\6000.0.60f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\MyAssets\Scripts\Gameplay\Animation\SkillCoolDownBehaviour.cs" />
     <Compile Include="Assets\MyAssets\Scripts\Gameplay\Object\Common\AttackBox.cs" />
     <Compile Include="Assets\MyAssets\Scripts\Gameplay\Object\Creature\EnemyBody.cs" />
     <Compile Include="Assets\MyAssets\Shaders\Fog\FogFeature.cs" />
     <Compile Include="Assets\MyAssets\Scripts\Gameplay\UI\PlayerController.cs" />
+    <Compile Include="Assets\MyAssets\Scripts\Gameplay\Object\Creature\Skill.cs" />
     <Compile Include="Assets\MyAssets\Scripts\Gameplay\Animation\AttackBehaviour.cs" />
     <Compile Include="Assets\MyAssets\Shaders\Bloom\BloomFeature.cs" />
     <Compile Include="Assets\MyAssets\Scripts\Gameplay\Object\Creature\EnemyAI.cs" />
-    <Compile Include="Assets\MyAssets\Scripts\Gameplay\Utils\FSM.cs" />
+    <Compile Include="Assets\MyAssets\Scripts\Gameplay\Effect\PlayerAnimationEvents.cs" />
     <Compile Include="Assets\MyAssets\Scripts\Gameplay\Object\Creature\Status.cs" />
     <Compile Include="Assets\MyAssets\Scripts\Gameplay\Animation\JumpBehaviour.cs" />
     <Compile Include="Assets\DoubleL\Demo\DemoCameraController.cs" />
@@ -64,19 +66,23 @@
     <Compile Include="Assets\MyAssets\Scripts\Gameplay\Animation\AiUpdateBehaviour.cs" />
     <Compile Include="Assets\MyAssets\Scripts\Gameplay\Object\Creature\CreatureBody.cs" />
     <Compile Include="Assets\MyAssets\Shaders\Toon\ToonOutlineFeature.cs" />
+    <Compile Include="Assets\MyAssets\Scripts\Gameplay\UI\SkillCDTimer.cs" />
     <Compile Include="Assets\MyAssets\Scripts\Gameplay\Animation\MovementBehaviour.cs" />
     <Compile Include="Assets\MyAssets\Scripts\Gameplay\Animation\StaggerBehaviour.cs" />
     <Compile Include="Assets\SazenGames\Skeleton\Scripts\AnimationReplayer.cs" />
     <Compile Include="Assets\Kevin Iglesias\Human Animations\Scripts\SpineProxy.cs" />
+    <Compile Include="Assets\MyAssets\Scripts\Gameplay\Effect\WeaponTrail.cs" />
     <Compile Include="Assets\Polytope Studio\Lowpoly_Demos\Environment_Free\Helpers\MouseLook.cs" />
     <Compile Include="Assets\MyAssets\Scripts\Gameplay\Object\Common\VisibleArea.cs" />
     <Compile Include="Assets\Polytope Studio\Lowpoly_Demos\Environment_Free\Helpers\PlayerMovement.cs" />
     <Compile Include="Assets\MyAssets\Scripts\Gameplay\Animation\DeadBehaviour.cs" />
+    <Compile Include="Assets\MyAssets\Scripts\Utils\FSM.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\MyAssets\Shaders\Bloom\BloomUpsamplePass.hlsl" />
     <None Include="Assets\Fantasy Forest Environment Free Sample\StandardNoCulling.shader" />
     <None Include="Assets\Polytope Studio\Lowpoly_Environments\Sources\Shaders\PT_Vegetation_Plants_Shader.shader" />
+    <None Include="Assets\MyAssets\Shaders\Utils\SimpleTransparentShader.shader" />
     <None Include="Assets\MyAssets\Shaders\Toon\ToonDepthPass.hlsl" />
     <None Include="Assets\Polytope Studio\Lowpoly_Village\Sources\Shaders\PT_Buildings_Shader_PBR.shader" />
     <None Include="Assets\MyAssets\Shaders\Bloom\BloomDownsamplePass.hlsl" />
@@ -1144,6 +1150,14 @@
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VisualEffectGraph.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualEffectGraph.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VisualEffectGraph.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualEffectGraph.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">

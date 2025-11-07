@@ -2,7 +2,7 @@ Using pre-set license
 Built from '6000.0/respin/6000.0.60f1-f02d6f9f9009' branch; Version is '6000.0.60f1 (61dfb374e36f) revision 6414259'; Using compiler version '193933523'; Build Type 'Release'
 OS: 'Windows 11  (10.0.26100) 64bit CoreCountrySpecific' Language: 'zh' Physical Memory: 16167 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
-Date: 2025-11-06T21:23:17Z
+Date: 2025-11-11T12:53:45Z
 
 COMMAND LINE ARGUMENTS:
 D:\Unity Projects\Unity Editor\6000.0.60f1\Editor\Unity.exe
@@ -16,7 +16,7 @@ D:/Unity Projects/Project02
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-55763
+64276
 -job-worker-count
 3
 -background-job-worker-count
@@ -62,16 +62,16 @@ D:/Unity Projects/Project02
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [19916]  Target information:
+Player connection [33668]  Target information:
 
-Player connection [19916]  * "[IP] 192.168.146.1 [Port] 0 [Flags] 2 [Guid] 3246274328 [EditorId] 3246274328 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-AQV7SLKG) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [33668]  * "[IP] 192.168.146.1 [Port] 0 [Flags] 2 [Guid] 671974375 [EditorId] 671974375 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-AQV7SLKG) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [19916]  * "[IP] 192.168.26.1 [Port] 0 [Flags] 2 [Guid] 3246274328 [EditorId] 3246274328 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-AQV7SLKG) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [33668]  * "[IP] 192.168.26.1 [Port] 0 [Flags] 2 [Guid] 671974375 [EditorId] 671974375 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-AQV7SLKG) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [19916]  * "[IP] 192.168.101.14 [Port] 0 [Flags] 2 [Guid] 3246274328 [EditorId] 3246274328 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-AQV7SLKG) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [33668]  * "[IP] 192.168.101.14 [Port] 0 [Flags] 2 [Guid] 671974375 [EditorId] 671974375 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-AQV7SLKG) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [19916] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [19916] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [33668] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [33668] Host joined alternative multi-casting on [225.0.0.222:34997]...
 JobSystem: Creating JobQueue using job-worker-count value 3
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
@@ -83,7 +83,7 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 5.88 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 4.38 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 6000.0.60f1 (61dfb374e36f)
 [Subsystems] Discovering subsystems at path D:/Unity Projects/Unity Editor/6000.0.60f1/Editor/Data/Resources/UnitySubsystems
@@ -99,45 +99,45 @@ Initialize mono
 Mono path[0] = 'D:/Unity Projects/Unity Editor/6000.0.60f1/Editor/Data/Managed'
 Mono path[1] = 'D:/Unity Projects/Unity Editor/6000.0.60f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'D:/Unity Projects/Unity Editor/6000.0.60f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56692
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56584
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: D:/Unity Projects/Unity Editor/6000.0.60f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: D:/Unity Projects/Unity Editor/6000.0.60f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.013461 seconds.
-- Loaded All Assemblies, in  0.578 seconds
+Registered in 0.010402 seconds.
+- Loaded All Assemblies, in  0.567 seconds
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.692 seconds
-Domain Reload Profiling: 1263ms
-	BeginReloadAssembly (166ms)
+- Finished resetting the current domain, in  0.500 seconds
+Domain Reload Profiling: 1058ms
+	BeginReloadAssembly (164ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (50ms)
-	RebuildNativeTypeToScriptingClass (17ms)
-	initialDomainReloadingComplete (79ms)
-	LoadAllAssembliesAndSetupDomain (258ms)
-		LoadAssemblies (155ms)
+	RebuildCommonClasses (57ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (78ms)
+	LoadAllAssembliesAndSetupDomain (244ms)
+		LoadAssemblies (153ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (254ms)
-			TypeCache.Refresh (251ms)
-				TypeCache.ScanAssembly (228ms)
+		AnalyzeDomain (240ms)
+			TypeCache.Refresh (237ms)
+				TypeCache.ScanAssembly (220ms)
 			BuildScriptInfoCaches (0ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (693ms)
+	FinalizeReload (500ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (595ms)
+		SetupLoadedEditorAssemblies (434ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (50ms)
-			SetLoadedEditorAssemblies (9ms)
-			BeforeProcessingInitializeOnLoad (128ms)
-			ProcessInitializeOnLoadAttributes (310ms)
-			ProcessInitializeOnLoadMethodAttributes (98ms)
+			InitializePlatformSupportModulesInManaged (37ms)
+			SetLoadedEditorAssemblies (8ms)
+			BeforeProcessingInitializeOnLoad (95ms)
+			ProcessInitializeOnLoadAttributes (226ms)
+			ProcessInitializeOnLoadMethodAttributes (68ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -146,8 +146,8 @@ Domain Reload Profiling: 1263ms
 Worker process is ready to serve import requests
 Import Worker Mode flag is 0x00
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  1.713 seconds
-Refreshing native plugins compatible for Editor in 4.47 ms, found 4 plugins.
+- Loaded All Assemblies, in  1.337 seconds
+Refreshing native plugins compatible for Editor in 3.40 ms, found 4 plugins.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Package Manager log level set to [2]
@@ -161,164 +161,871 @@ Package Manager log level set to [2]
 [MODES] ModeService[none].LoadModes
 [MODES] Loading mode Default (0) for mode-current-id-Project02
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.890 seconds
-Domain Reload Profiling: 3578ms
-	BeginReloadAssembly (308ms)
+- Finished resetting the current domain, in  1.372 seconds
+Domain Reload Profiling: 2702ms
+	BeginReloadAssembly (274ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (10ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (48ms)
-	RebuildCommonClasses (72ms)
-	RebuildNativeTypeToScriptingClass (20ms)
-	initialDomainReloadingComplete (94ms)
-	LoadAllAssembliesAndSetupDomain (1192ms)
-		LoadAssemblies (839ms)
+	RebuildCommonClasses (60ms)
+	RebuildNativeTypeToScriptingClass (22ms)
+	initialDomainReloadingComplete (59ms)
+	LoadAllAssembliesAndSetupDomain (914ms)
+		LoadAssemblies (640ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (515ms)
-			TypeCache.Refresh (375ms)
-				TypeCache.ScanAssembly (347ms)
-			BuildScriptInfoCaches (111ms)
-			ResolveRequiredComponents (22ms)
-	FinalizeReload (1892ms)
+		AnalyzeDomain (403ms)
+			TypeCache.Refresh (301ms)
+				TypeCache.ScanAssembly (280ms)
+			BuildScriptInfoCaches (80ms)
+			ResolveRequiredComponents (16ms)
+	FinalizeReload (1373ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1516ms)
+		SetupLoadedEditorAssemblies (1059ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (6ms)
-			SetLoadedEditorAssemblies (7ms)
-			BeforeProcessingInitializeOnLoad (328ms)
-			ProcessInitializeOnLoadAttributes (1007ms)
-			ProcessInitializeOnLoadMethodAttributes (140ms)
-			AfterProcessingInitializeOnLoad (28ms)
-			EditorAssembliesLoaded (1ms)
+			InitializePlatformSupportModulesInManaged (5ms)
+			SetLoadedEditorAssemblies (6ms)
+			BeforeProcessingInitializeOnLoad (232ms)
+			ProcessInitializeOnLoadAttributes (709ms)
+			ProcessInitializeOnLoadMethodAttributes (88ms)
+			AfterProcessingInitializeOnLoad (19ms)
+			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (15ms)
+		AwakeInstancesAfterBackupRestoration (11ms)
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
-Refreshing native plugins compatible for Editor in 5.31 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 6.70 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 14 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6811 unused Assets / (4.1 MB). Loaded Objects now: 7520.
-Memory consumption went from 151.8 MB to 147.8 MB.
-Total: 29.787900 ms (FindLiveObjects: 4.532300 ms CreateObjectMapping: 2.317500 ms MarkObjects: 17.938400 ms  DeleteObjects: 4.997700 ms)
+Unloading 19 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7448 unused Assets / (5.4 MB). Loaded Objects now: 8182.
+Memory consumption went from 173.4 MB to 168.0 MB.
+Total: 11.809700 ms (FindLiveObjects: 1.307800 ms CreateObjectMapping: 2.156100 ms MarkObjects: 5.236600 ms  DeleteObjects: 3.107700 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 307916.523277 seconds.
-  path: Assets/MyAssets/Shaders/Toon/ToonShader.shader
-  artifactKey: Guid(aba50ed3c57c9bd4c9dda6c50fe24ec1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/MyAssets/Shaders/Toon/ToonShader.shader using Guid(aba50ed3c57c9bd4c9dda6c50fe24ec1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3e9948367694cdc986a1b78c9f9fdb77') in 0.0488865 seconds
+  Time since last request: 362176.248592 seconds.
+  path: Assets/MyAssets/Prefabs/Creature/Enemy.prefab
+  artifactKey: Guid(a0d20f815b69b504d8b235b6f8568889) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/Creature/Enemy.prefab using Guid(a0d20f815b69b504d8b235b6f8568889) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'aa7e7f23f97ffa8185264d507cc309dc') in 0.4726223 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 393
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/EEJANAI_Team/FreeSwordAnimations/Animations/slash4.anim
+  artifactKey: Guid(b68649dc7afc70141b3b2a40f71fb48c) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/EEJANAI_Team/FreeSwordAnimations/Animations/slash4.anim using Guid(b68649dc7afc70141b3b2a40f71fb48c) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'ba56e21be2ce3ccad82e4b7cab923902') in 0.029805 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/MyAssets/Prefabs/AnimatorContorller/PlayerAnomatiorController.controller
+  artifactKey: Guid(321d89416a5d4994ea1d33f9bc00c068) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/AnimatorContorller/PlayerAnomatiorController.controller using Guid(321d89416a5d4994ea1d33f9bc00c068) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '031e5ab76b1806e1785301c4378d29a8') in 0.082351 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 58
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/MyAssets/Scripts/Gameplay/Object/Creature/CreatureBody.cs
+  artifactKey: Guid(a39a125472143a2419cadfeee33f0558) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Scripts/Gameplay/Object/Creature/CreatureBody.cs using Guid(a39a125472143a2419cadfeee33f0558) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c6c51e76be5d4fbd04c7cd6045dfbdcd') in 0.0087542 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
 ========================================================================
 Received Import Request.
-  Time since last request: 11.236626 seconds.
-  path: Assets/MyAssets/Shaders/Toon/ToonOutlineForwardPass.hlsl
-  artifactKey: Guid(7c493153806ec9b41992edc237c66b7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/MyAssets/Shaders/Toon/ToonOutlineForwardPass.hlsl using Guid(7c493153806ec9b41992edc237c66b7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ff28a07ede0bafc90652353c787cd456') in 0.0164468 seconds
-Number of updated asset objects reloaded before import = 1Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 95.531208 seconds.
-  path: Assets/MyAssets/Shaders/Toon/ToonOutlineForwardPass.hlsl
-  artifactKey: Guid(7c493153806ec9b41992edc237c66b7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/MyAssets/Shaders/Toon/ToonOutlineForwardPass.hlsl using Guid(7c493153806ec9b41992edc237c66b7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd89f72a86621e8998a034cabd3555f84') in 0.0062913 seconds
-Number of updated asset objects reloaded before import = 1Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 52.132732 seconds.
-  path: Assets/MyAssets/Shaders/Toon/ToonOutlineForwardPass.hlsl
-  artifactKey: Guid(7c493153806ec9b41992edc237c66b7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/MyAssets/Shaders/Toon/ToonOutlineForwardPass.hlsl using Guid(7c493153806ec9b41992edc237c66b7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c06e9e170fdd003b73859e4b36142023') in 0.0024786 seconds
-Number of updated asset objects reloaded before import = 1Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 19.513591 seconds.
-  path: Assets/MyAssets/Shaders/Toon/ToonOutlineForwardPass.hlsl
-  artifactKey: Guid(7c493153806ec9b41992edc237c66b7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/MyAssets/Shaders/Toon/ToonOutlineForwardPass.hlsl using Guid(7c493153806ec9b41992edc237c66b7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7ae7fe1383066b0afd6094861490d7c5') in 0.0030565 seconds
-Number of updated asset objects reloaded before import = 1Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 24.666746 seconds.
-  path: Assets/MyAssets/Shaders/Toon/ToonOutlineForwardPass.hlsl
-  artifactKey: Guid(7c493153806ec9b41992edc237c66b7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/MyAssets/Shaders/Toon/ToonOutlineForwardPass.hlsl using Guid(7c493153806ec9b41992edc237c66b7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2b248538988ccaa32c4f41527c5c21ff') in 0.0040414 seconds
-Number of updated asset objects reloaded before import = 1Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 263.054015 seconds.
-  path: Assets/MyAssets/Shaders/VolumeLight/VolumeLightMarchingPass.hlsl
-  artifactKey: Guid(6fe463dc37d55f148847ace6400e7647) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/MyAssets/Shaders/VolumeLight/VolumeLightMarchingPass.hlsl using Guid(6fe463dc37d55f148847ace6400e7647) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e3814dedc5580b5a4366425d867ab55d') in 0.0017704 seconds
-Number of updated asset objects reloaded before import = 1Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/MyAssets/Shaders/VolumeLight/VolumeLightShader.shader
-  artifactKey: Guid(b7e4c37a177497247a4617c9e8e14e3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/MyAssets/Shaders/VolumeLight/VolumeLightShader.shader using Guid(b7e4c37a177497247a4617c9e8e14e3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f0c30d8e7ee8b350e1d92b3deafc452e') in 0.0012829 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
-
-========================================================================
-Received Import Request.
-  Time since last request: 109.901317 seconds.
-  path: Assets/MyAssets/Shaders/Bloom/BloomFeature.cs
-  artifactKey: Guid(483b6d88998a95141be3197d736701a9) Importer(2089858483,192608db42251d675da83286b1cce702)
-Start importing Assets/MyAssets/Shaders/Bloom/BloomFeature.cs using Guid(483b6d88998a95141be3197d736701a9) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'a29cb46bce2145b113fecd933216e82a') in 0.2388792 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/MyAssets/Shaders/Fog/FogPass.hlsl
-  artifactKey: Guid(4a6f7bcc82ca14e49ae6225329ff7f5d) Importer(2089858483,192608db42251d675da83286b1cce702)
-Start importing Assets/MyAssets/Shaders/Fog/FogPass.hlsl using Guid(4a6f7bcc82ca14e49ae6225329ff7f5d) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'f2801de8a53a60ab70bdc8bfc7155e2e') in 0.0070944 seconds
+  Time since last request: 0.000041 seconds.
+  path: Assets/Scenes/SampleScene.unity
+  artifactKey: Guid(99c9720ab356a0642a771bea13969a05) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scenes/SampleScene.unity using Guid(99c9720ab356a0642a771bea13969a05) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '0481b6b7f7637bb499f5c85a99c4d8e4') in 0.1089306 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000036 seconds.
-  path: Assets/MyAssets/Shaders/Bloom/BloomShader.shader
-  artifactKey: Guid(f99fb4a9ae1c62243ac9a22732d8b7e9) Importer(2089858483,192608db42251d675da83286b1cce702)
-Start importing Assets/MyAssets/Shaders/Bloom/BloomShader.shader using Guid(f99fb4a9ae1c62243ac9a22732d8b7e9) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '98d3bcf6b2d22851ab0919f98db815f7') in 0.0137207 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+  path: Assets/MyAssets/Prefabs/UI/SkillIcon.prefab
+  artifactKey: Guid(2daa9cf919e5d85408f9ceb012c0e5c5) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/UI/SkillIcon.prefab using Guid(2daa9cf919e5d85408f9ceb012c0e5c5) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'bd24398eb5ebdc474e411ae2d59eb77e') in 0.0724555 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 25
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000022 seconds.
-  path: Assets/Scenes/SampleScene.unity
-  artifactKey: Guid(99c9720ab356a0642a771bea13969a05) Importer(2089858483,192608db42251d675da83286b1cce702)
-Start importing Assets/Scenes/SampleScene.unity using Guid(99c9720ab356a0642a771bea13969a05) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '07472bea52af69256af7706ca3937002') in 0.0758729 seconds
+  path: Assets/MyAssets/Scripts/Gameplay/Animation/AttackBehaviour.cs
+  artifactKey: Guid(f6e479134abe55e4f9a40846f792aa34) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Scripts/Gameplay/Animation/AttackBehaviour.cs using Guid(f6e479134abe55e4f9a40846f792aa34) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '59f81dfd3b6247a1e7bb56a4de5ca143') in 0.0079164 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 65.584234 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ebf47793799c15755e53ec178b2ac89d') in 0.0167732 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/MyAssets/Shaders/Toon/ToonOutlinePostPass.hlsl
-  artifactKey: Guid(dd01f2b7805fe1a488807afc6e763932) Importer(2089858483,192608db42251d675da83286b1cce702)
-Start importing Assets/MyAssets/Shaders/Toon/ToonOutlinePostPass.hlsl using Guid(dd01f2b7805fe1a488807afc6e763932) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1506d97707358d5b319765dd2ec5b86c') in 0.0092445 seconds
+  Time since last request: 1.181720 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '700f4a472f04c8e9e6343de71d120019') in 0.0069438 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/MyAssets/Shaders/VolumeLight/VolumeLightMarchingPass.hlsl
-  artifactKey: Guid(6fe463dc37d55f148847ace6400e7647) Importer(2089858483,192608db42251d675da83286b1cce702)
-Start importing Assets/MyAssets/Shaders/VolumeLight/VolumeLightMarchingPass.hlsl using Guid(6fe463dc37d55f148847ace6400e7647) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'e2c552efb0de093043dfd0656d88dd37') in 0.0098343 seconds
+  Time since last request: 1569.415876 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX 1.vfx
+  artifactKey: Guid(43c06ca7b8d56284cb598dc2122323cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX 1.vfx using Guid(43c06ca7b8d56284cb598dc2122323cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '60ab4278910a1992bbb13df6afd35639') in 0.0184525 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.624532 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX 1.vfx
+  artifactKey: Guid(43c06ca7b8d56284cb598dc2122323cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX 1.vfx using Guid(43c06ca7b8d56284cb598dc2122323cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3d7fb1f342780515ec52e33d05b496b6') in 0.0061561 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.706178 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX 1.vfx
+  artifactKey: Guid(43c06ca7b8d56284cb598dc2122323cd) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX 1.vfx using Guid(43c06ca7b8d56284cb598dc2122323cd) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'fb01b39c51ece33640dcdf977a641375') in 0.0321436 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 1529.916512 seconds.
+  path: Packages/com.unity.visualeffectgraph/Textures/DefaultDot.tga
+  artifactKey: Guid(8aafaa78fe944854997fef757ff4ba72) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.visualeffectgraph/Textures/DefaultDot.tga using Guid(8aafaa78fe944854997fef757ff4ba72) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '69c7c6c9914761c9430c97b52b960026') in 0.0581488 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Packages/com.unity.visualeffectgraph/Textures/SignedDistanceField.asset
+  artifactKey: Guid(5c2949c31aafddd4e8011ffdebb8fdf7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.visualeffectgraph/Textures/SignedDistanceField.asset using Guid(5c2949c31aafddd4e8011ffdebb8fdf7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '146487fd5e802af4d98e89544ed70585') in 0.0908212 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/MyAssets/Shaders/VolumeLight/VolumeLightBlurPass.hlsl
-  artifactKey: Guid(becc1116a40381049b2fd85082c92f3a) Importer(2089858483,192608db42251d675da83286b1cce702)
-Start importing Assets/MyAssets/Shaders/VolumeLight/VolumeLightBlurPass.hlsl using Guid(becc1116a40381049b2fd85082c92f3a) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '0699c51ac32be07c4bf1a08894cedecc') in 0.0079762 seconds
+  Time since last request: 0.000046 seconds.
+  path: Packages/com.unity.visualeffectgraph/Textures/TileableGradientNoise.asset
+  artifactKey: Guid(957f5b57c432f1f45bb6af0c652e917e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.visualeffectgraph/Textures/TileableGradientNoise.asset using Guid(957f5b57c432f1f45bb6af0c652e917e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6de6a6a44664ccb5e894bea86f1a8f59') in 0.0148728 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Packages/com.unity.visualeffectgraph/Textures/Noise.tga
+  artifactKey: Guid(1d8481de16af723418a688958c41224b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.visualeffectgraph/Textures/Noise.tga using Guid(1d8481de16af723418a688958c41224b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '76bd49a3f5df541eb1f69b32474586e3') in 0.0101067 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Packages/com.unity.visualeffectgraph/Textures/SimpleSmoke.tga
+  artifactKey: Guid(de0fae515169ff246a20d58a8a440ed0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.visualeffectgraph/Textures/SimpleSmoke.tga using Guid(de0fae515169ff246a20d58a8a440ed0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dbe9be88e2db6b57ca9c7e903abc732f') in 0.0078445 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 15334.313217 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b414c6dc7e30b4a7bff3231b6914aed0') in 0.003033 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 1566.512322 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'a9c29a0f08fefd3f64fdfa29eb238396') in 0.0241677 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.130318 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '99985c203c040e397945eb90086adc31') in 0.0095467 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 40.040400 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e201e51cb482c90be48a78434ea40da7') in 0.0061813 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 403.197849 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2eb5a3fe63a27f3a80b0b405e3024d8c') in 0.0083422 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 181.733927 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3756558326fb4f97270381edaa60f50c') in 0.0091688 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.534259 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX 1.vfx
+  artifactKey: Guid(43c06ca7b8d56284cb598dc2122323cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX 1.vfx using Guid(43c06ca7b8d56284cb598dc2122323cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8c7bf78d6af2ee0b038723e7a255d339') in 0.0079552 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 31.026557 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6ef6a45034192002ec6594a73bea8abe') in 0.0070042 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 43.185299 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4b51bbcc377dce0b24f7ea5bc5746b4d') in 0.0075924 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 25.468102 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6a88b657300d5457bff6ccf63655ddd2') in 0.005827 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.834430 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '4b20805349cd6897749fe0194ec03db2') in 0.021169 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.231125 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6059b7edf377aecdc5f742e6f7045415') in 0.0069083 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.988073 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd21383a413b81c65bbffb6395a5059b0') in 0.0071229 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 51.674304 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1e5982ad9f39ffc94b8abccb442b2667') in 0.0069401 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.749588 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bae0344ca02afe9aedab056ef8ef24fb') in 0.0080748 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 46.328423 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7727de30db661b306e12286f3986281b') in 0.0070905 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 40.365578 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b8fde78e8904c548143c9f1df12bab73') in 0.0072708 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.160764 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7dcdd2c2377965a68686490c9d59b375') in 0.0063736 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.841954 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '70bd25254aa55de7ab8add076519c6a5') in 0.0185845 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.185704 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e96166fa1249fdbb63a38d062646f275') in 0.0067154 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 1749.606556 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e814b0fd61558fdc490be40ea8131cd7') in 0.0074626 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.818256 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '645f06d3fce683c54822e1d672f123b3') in 0.0156206 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 78.026129 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2ff609f72d79617d0e3f980e4e97ef06') in 0.0069011 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.560316 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1b9d1adf204d49a3a612c4f7e252d8fa') in 0.0172323 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.792763 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '0d8faec9e075f5e0a6835027d04f357d') in 0.0181394 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 179.265892 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '28fb9ccb629ece7e43cfdca858e9c92d') in 0.0063891 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.846491 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '29fff04467c095e339f760fcfe39cd87') in 0.0180778 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.464318 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd0ce1b53774b07caf8e2f6c4fda6c3f6') in 0.0091463 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.795092 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c1f44c1dee9616e8291e80b369c23556') in 0.0182071 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 59.785037 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f265d96c3e052a7053aae50b17a0235c') in 0.0088201 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.929904 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b41ee5c7686727e712e814d8ca3aca20') in 0.007488 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.675956 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f86033b175513985125822e6903b5ddb') in 0.0059831 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.842471 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '2105aef21b386cb5275ff25a55f453f0') in 0.0174155 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 46.228599 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6929542ed0741cd99de203f5548e72a6') in 0.0078166 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.560317 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9e6eb8aba61127f418e6a0ebfdadd1bd') in 0.0076191 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.818661 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c59c533001cc3e549b758633d936ab66') in 0.0180494 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 24.023507 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a10d32324bede1b7f119d1062a92b92c') in 0.007599 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.834192 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '0b8300c40dff5783b28e3335c1f56f17') in 0.0187084 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 45.251277 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4467ecd063d1de1d90ea73868c9d05d3') in 0.0061556 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.836565 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c8620d5200708dcd562dad5dc0ddee8c') in 0.014183 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 32.918855 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7c643f3366c7b1f2138051be1ce657c2') in 0.009142 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 18.088472 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1c9682f5e5c4c95e71bf08029f96880a') in 0.0087672 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.836293 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4319f46884e04fab53c06014e1b7977f') in 0.0106479 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.673218 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '06575c80ebf00b91e8b3d4d33a2dc97e') in 0.0126248 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.963462 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a3eb59e998a50183d450378c1ec70b0d') in 0.0097112 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.765382 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a407893b154802c9da3b36d343b62e52') in 0.0061548 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.038029 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a2a241b4a2eb0bd9dfb16058ef3a1457') in 0.0075871 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.822854 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '22494d3d914b4246840ff615027f0565') in 0.0158947 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 46.130623 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '417baf056f532f44c7ab2407faebd404') in 0.0042027 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.354442 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '89d8296fdcc378bae417622d3a41eef0') in 0.008371 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 28.181054 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '63e865e1595d33bcd917502252f14bff') in 0.0066932 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.969282 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b64b29981964398e6ab217e451443e64') in 0.0055898 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.815307 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '8ab29cee5422aaeef595dd3a52de2cb5') in 0.0186339 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 3611.137326 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a650869a526e6708cfbd6ff1a75ae232') in 0.0081841 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.038059 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0fd43d2755fad49e70577707e0d0fbf8') in 0.0016232 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 64.504576 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7b58e4cb6b3d1fccfd0689e4ff176dae') in 0.00732 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.695406 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2fa0013a45512634aef12258525575f8') in 0.0069641 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.821585 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '4bde08e4422890aa4712d0513c6616f5') in 0.0172616 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 57.132427 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '522f00e9008198f556ce0492ce2d50e3') in 0.0079884 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.018195 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '30d667eb7b0fbd114b8db8d5b1ec3556') in 0.0057037 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.838433 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'ba0b626165d98b85ebacdf5e5506cd7a') in 0.0139517 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 103.761173 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '10251602a7d7b2f8a1ed5f145e70114d') in 0.0094107 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 35.460117 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c60b57a0de178151b1aa47f397aefbbb') in 0.0098546 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.808363 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '6ece9a4b1f764afb0bef39b28706e518') in 0.0174761 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 84.199405 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'febe475beb67d28845fff5edd1e547ee') in 0.0130025 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.048864 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '82b72cdf51f0583ce9ba6db8c774714d') in 0.0073897 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.824690 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'ce84d12a70a2c7407bff2604cc87811f') in 0.0159337 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.861579 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dc9d24be19121e385746012c262bdbad') in 0.0080054 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 48.314230 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'aee45c1cfd79f1345c11ff6bcd2ddd58') in 0.0047803 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.820972 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6c9d7655e9992d02d6bc61cc671298b3') in 0.0079118 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.983676 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e40248d82d80e55b48a82b070503b3ba') in 0.0057227 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.823576 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '426358c39384d277367c62dcc718470f') in 0.0231328 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 37.912858 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '00000000000000000000000000000000') in 0.0078088 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/myassets/prefabs/effects/new vfx.vfx in SourceAssetDB has modification time of '2025-11-11T20:32:29.2127956Z' while content on disk has modification time of '2025-11-11T20:32:45.1906037Z'
+  ERROR: Build asset version error: assets/myassets/prefabs/effects/new vfx.vfx in SourceAssetDB has modification time of '2025-11-11T20:32:29.2127956Z' while content on disk has modification time of '2025-11-11T20:32:45.1906037Z'
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.374949 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6f95e7c6c06256c37716d0e515a995b3') in 0.0081443 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.809192 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '0d2763b82484f88bfd0a14a50533cfa7') in 0.0150503 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.044996 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f45f307d6cb8a68bfb9cfe4a505673e8') in 0.0070817 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.316506 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX 1.vfx
+  artifactKey: Guid(43c06ca7b8d56284cb598dc2122323cd) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX 1.vfx using Guid(43c06ca7b8d56284cb598dc2122323cd) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '682361b486776eebeeae03fd23793950') in 0.013948 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.847684 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '56762d46e587bfe7b3ac6cf683f74ceb') in 0.0090253 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 313.196729 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX 1.vfx
+  artifactKey: Guid(43c06ca7b8d56284cb598dc2122323cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX 1.vfx using Guid(43c06ca7b8d56284cb598dc2122323cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f498745f1edb9a4b584ac03576b825a4') in 0.00755 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.868054 seconds.
+  path: Assets/Leohpaz/RPG_Essentials_Free/10_UI_Menu_SFX/001_Hover_01.wav
+  artifactKey: Guid(35cf7766e9e2aa542811e896fde57989) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Leohpaz/RPG_Essentials_Free/10_UI_Menu_SFX/001_Hover_01.wav using Guid(35cf7766e9e2aa542811e896fde57989) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c86d6331de1beb75154b868171dd44d1') in 0.1865284 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Leohpaz/RPG_Essentials_Free/10_Battle_SFX/35_Miss_Evade_02.wav
+  artifactKey: Guid(f11db4559b3ffff45b62e9327fc5535d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Leohpaz/RPG_Essentials_Free/10_Battle_SFX/35_Miss_Evade_02.wav using Guid(f11db4559b3ffff45b62e9327fc5535d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '13b41870c048e7a9b57b7d3b37969a67') in 0.013346 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.532199 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '91904b23b9521638eb5ba82a6d4aea51') in 0.0081375 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 49.427961 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9582ff06bed015796dd3e38cb8af8e41') in 0.0083903 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.341339 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '752c4bac2fdc8e5e5e919488d998d1c9') in 0.0069742 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.812655 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '84226417580b963f94670f0524f909d4') in 0.01796 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 188.496061 seconds.
+  path: Assets/MyAssets/Prefabs/Effects/New VFX.vfx
+  artifactKey: Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyAssets/Prefabs/Effects/New VFX.vfx using Guid(05c770faa2d7b1c42b8045958fbf4822) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9d68ea9bbad7fa0a54f77736f466c5a9') in 0.0089305 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
 
