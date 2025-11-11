@@ -47,10 +47,10 @@ float Noise(float x, float y){
   return lerp(lerp(noise0, noise1, u), lerp(noise2, noise3, u), v);
 }
 float FogFactor(float l, float h) {
-  return exp2(l - h) - 1;
+  return max(exp2(l - h) - 1, 0);
 }
 half4 Frag(Varyings input) : SV_TARGET0 {
-  float depth = _CameraDepthTexture[floor(input.positionCS.xy)];
+  float depth = _CameraDepthTexture[uint2(input.positionCS.xy)];
   float4 positionCS = float4(input.xyCS, depth, 1.0);
   float4 positionVS = mul(UNITY_MATRIX_I_P, positionCS);
   positionVS /= positionVS.w;

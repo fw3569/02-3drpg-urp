@@ -246,8 +246,8 @@
     <Compile Include="Library\PackageCache\com.unity.visualscripting@6279e2b7c485\Editor\VisualScripting.Core\Description\GraphItemDescriptor.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@6279e2b7c485\Editor\VisualScripting.Core\Interface\TextureResolution.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@6279e2b7c485\Editor\VisualScripting.Core\Meta\ProjectSettingMetadata.cs" />
-    <Compile Include="Library\PackageCache\com.unity.visualscripting@6279e2b7c485\Editor\VisualScripting.Core\Inspection\Primitives\DiscreteNumberInspector.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@6279e2b7c485\Editor\VisualScripting.Core\Descriptors\Description.cs" />
+    <Compile Include="Library\PackageCache\com.unity.visualscripting@6279e2b7c485\Editor\VisualScripting.Core\Inspection\Primitives\DiscreteNumberInspector.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@6279e2b7c485\Editor\VisualScripting.Core\Plugins\PluginUtility.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@6279e2b7c485\Editor\VisualScripting.Core\Context\GraphContext.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@6279e2b7c485\Editor\VisualScripting.Core\Interface\Fonts\FontWeight.cs" />
@@ -1062,6 +1062,10 @@
       <HintPath>Library\PackageCache\com.unity.visualscripting@6279e2b7c485\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="MeshBakerLib">
+      <HintPath>Assets\MeshBaker\Libs\MeshBakerLib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>Library\PackageCache\com.unity.visualscripting@6279e2b7c485\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
       <Private>False</Private>
@@ -1072,6 +1076,10 @@
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
       <HintPath>Library\PackageCache\com.unity.collections@aea9d3bd5e19\Unity.Collections.Tests\System.Runtime.CompilerServices.Unsafe\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MeshBakerEditorLib">
+      <HintPath>Assets\MeshBaker\Libs\MeshBakerEditorLib.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="mscorlib">

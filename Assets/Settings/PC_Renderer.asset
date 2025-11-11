@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: VolumeLightFeature
   m_EditorClassIdentifier: 
   m_Active: 0
-  intensity: 5
+  intensity: 2
   mieScattering: 0.5
   extingctionFactor: 0.5
   blurTimes: 4
+  bilateralFilterStandardDeviation: 0.01
 --- !u!114 &-1221216300015846223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,8 +103,9 @@ MonoBehaviour:
   m_Name: FogFeature
   m_EditorClassIdentifier: 
   m_Active: 0
-  densityFar: 0.001
-  densityHeight: 0.03
+  densityFar: 0.0003
+  densityHeight: 0.1
+  color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1185412016653396539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,7 +121,7 @@ MonoBehaviour:
   m_Active: 0
   bloomThreshold: 1
   bloomIntensity: 1
-  bloomTimes: 3
+  bloomTimes: 5
 --- !u!114 &1987550166638969514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76a7a3dd20a9c5540a66c25aa2c3d981, type: 3}
   m_Name: ToonOutlineFeature
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   outlineType: 0
   edgeThresholdColor: 0.5
   edgeThresholdDepth: 0.001
@@ -148,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62c9c65cf3354c93be831c8bc075510, type: 3}
   m_Name: ScreenSpaceAmbientOcclusion
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   m_Settings:
     AOMethod: 0
     Downsample: 0
@@ -159,6 +161,6 @@ MonoBehaviour:
     DirectLightingStrength: 0.25
     Radius: 0.3
     Samples: 1
-    BlurQuality: 0
+    BlurQuality: 1
     Falloff: 100
     SampleCount: -1

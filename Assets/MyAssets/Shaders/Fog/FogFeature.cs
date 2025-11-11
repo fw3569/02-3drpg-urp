@@ -7,11 +7,11 @@ using UnityEngine.Rendering.Universal;
 public class FogFeature : ScriptableRendererFeature {
   public float densityFar = 0.001f;
   public float densityHeight = 0.03f;
+  public Color color = Color.white;
 
   [Serializable]
   public class FogPass : ScriptableRenderPass {
-    public float densityFar;
-    public float densityHeight;
+    public Material material;
     [Serializable]
     class PassData {
       public Material material;
@@ -21,11 +21,9 @@ public class FogFeature : ScriptableRendererFeature {
       var resourceData = frameContext.Get<UniversalResourceData>();
       using (var builder = renderGraph.AddRasterRenderPass(fogPassName,
           out PassData passData)) {
-        passData.material = new Material(Shader.Find("Custom/FogShader"));
-        passData.material.SetFloat("_DensityFar", densityFar);
-        passData.material.SetFloat("_DensityHeight", densityHeight);
+        passData.material = material;
         builder.SetRenderAttachmentDepth(resourceData.activeDepthTexture, AccessFlags.Read);
-        builder.SetRenderAttachment(resourceData.activeColorTexture, 0, AccessFlags.WriteAll);
+        builder.SetRenderAttachment(resourceData.activeColorTexture, 0, AccessFlags.Write);
         builder.SetRenderFunc(static (PassData data, RasterGraphContext context) => {
           context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 0, MeshTopology.Triangles, 3);
         });
@@ -34,10 +32,13 @@ public class FogFeature : ScriptableRendererFeature {
   }
   private FogPass fogPass;
   public override void Create() {
+    Material material = new(Shader.Find("Custom/FogShader"));
+    material.SetFloat("_DensityFar", densityFar);
+    material.SetFloat("_DensityHeight", densityHeight);
+    material.SetColor("_Color", color);
     fogPass = new FogPass() {
       renderPassEvent = RenderPassEvent.BeforeRenderingPostProcessing,
-      densityFar = densityFar,
-      densityHeight = densityHeight
+      material = material
     };
   }
   public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData) {

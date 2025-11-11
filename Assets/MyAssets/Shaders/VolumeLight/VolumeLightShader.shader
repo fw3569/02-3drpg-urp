@@ -1,10 +1,11 @@
 Shader "Custom/VolumeLightShader" {
   Properties {
     [HideInInspector] [MainTexture] _MainTex("Main Texture", 2D) = "white" {}
-    [HideInInspector] _Intensity("Intensity", Float) = 5
+    [HideInInspector] _Intensity("Intensity", Float) = 1
     [HideInInspector] _MieScattering("MieScattering", Range(0, 1)) = 0.5
     [HideInInspector] _ExtingctionFactor("ExtingctionFactor", Float) = 0.5
     [HideInInspector] _BlurStep("BlurStep", int) = 1
+    [HideInInspector] _Deviation("Bilateral filter standard deviation", Float) = 0.01
   }
   SubShader {
     Tags {"RenderPipeline" = "UniversalPipeline" "RenderType"="Overlay" "Queue"="Overlay" "DisableBatching"="False"}
@@ -17,12 +18,12 @@ Shader "Custom/VolumeLightShader" {
     #pragma vertex Vert
     #pragma fragment Frag
     #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-    #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
     CBUFFER_START(UnityPerMaterial)
-      float _Intensity;
-      float _MieScattering;
-      float _ExtingctionFactor;
       float4 _MainTex_TexelSize;
+      half _Intensity;
+      half _MieScattering;
+      half _ExtingctionFactor;
+      half _Deviation;
       int _BlurStep;
     CBUFFER_END
     ENDHLSL
@@ -32,6 +33,7 @@ Shader "Custom/VolumeLightShader" {
       Tags {"LightMode" = "VolumeLightMarchingPass"}
       HLSLPROGRAM
       #pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
+      #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
       #include "./VolumeLightMarchingPass.hlsl"
       ENDHLSL
     }
@@ -44,12 +46,12 @@ Shader "Custom/VolumeLightShader" {
       ENDHLSL
     }
     Pass {
-      Blend One One, One Zero
-      // Blend Off
+      Blend One One
       Name "VolumeLightBlendgPass"
       Tags {"LightMode" = "VolumeLightBlendPass"}
       HLSLPROGRAM
-      #include "./VolumeLightBlendPass.hlsl"
+      #define BLEND_ON
+      #include "./VolumeLightBlurPass.hlsl"
       ENDHLSL
     }
   }

@@ -97,6 +97,8 @@ public class PlayerController : MonoBehaviour {
   }
   void LateUpdate() {
     look_forward += m_look_action.ReadValue<Vector2>() * m_camera_speed;
+    look_forward.y = Mathf.Min(look_forward.y, 18f);
+    look_forward.y = Mathf.Max(look_forward.y, -40f);
     Camera.main.transform.parent.rotation = Quaternion.Euler(-look_forward.y, look_forward.x, 0.0f);
   }
 }

@@ -158,8 +158,8 @@
     <Compile Include="Library\PackageCache\com.unity.timeline@6b9e48457ddb\Editor\Items\MarkerItem.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@6b9e48457ddb\Editor\Undo\ApplyDefaultUndoAttribute.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@6b9e48457ddb\Editor\treeview\Control.cs" />
-    <Compile Include="Library\PackageCache\com.unity.timeline@6b9e48457ddb\Editor\Signals\SignalEmitterInspector.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@6b9e48457ddb\Editor\Window\TimelineWindow_Navigator.cs" />
+    <Compile Include="Library\PackageCache\com.unity.timeline@6b9e48457ddb\Editor\Signals\SignalEmitterInspector.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@6b9e48457ddb\Editor\Undo\UndoScope.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@6b9e48457ddb\Editor\TimelineSelection.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@6b9e48457ddb\Editor\Manipulators\Utils\ManipulatorsUtils.cs" />
@@ -865,6 +865,10 @@
       <HintPath>Library\PackageCache\com.unity.visualscripting@6279e2b7c485\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="MeshBakerLib">
+      <HintPath>Assets\MeshBaker\Libs\MeshBakerLib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>Library\PackageCache\com.unity.visualscripting@6279e2b7c485\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
       <Private>False</Private>
@@ -875,6 +879,10 @@
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
       <HintPath>Library\PackageCache\com.unity.collections@aea9d3bd5e19\Unity.Collections.Tests\System.Runtime.CompilerServices.Unsafe\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MeshBakerEditorLib">
+      <HintPath>Assets\MeshBaker\Libs\MeshBakerEditorLib.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="mscorlib">

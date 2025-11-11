@@ -1,10 +1,11 @@
-sampler2D _MainTex;
+sampler2D _BaseMap;
 struct Attributes {
   float4 positionOS        : POSITION;
   float3 normalOS          : NORMAL;
   float2 texcoord          : TEXCOORD0;
   float2 staticLightmapUV  : TEXCOORD1;
   float2 dynamicLightmapUV : TEXCOORD2;
+  UNITY_VERTEX_INPUT_INSTANCE_ID
 };
 struct Varyings {
   float4 positionCS        : SV_POSITION;
@@ -22,6 +23,7 @@ struct Varyings {
 #ifdef USE_APV_PROBE_OCCLUSION
   float4 probeOcclusion    : TEXCOORD5;
 #endif
+  UNITY_VERTEX_INPUT_INSTANCE_ID
 };
 
 // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
@@ -32,8 +34,10 @@ UNITY_INSTANCING_BUFFER_START(Props)
 UNITY_INSTANCING_BUFFER_END(Props)
 Varyings Vert (Attributes input) {
   Varyings output;
+  UNITY_SETUP_INSTANCE_ID(input);
+  UNITY_TRANSFER_INSTANCE_ID(input, output);
   output.positionCS = TransformObjectToHClip(input.positionOS.xyz);
-  output.uv = input.texcoord.xy;
+  output.uv = TRANSFORM_TEX(input.texcoord, _BaseMap);
   output.positionWS = TransformObjectToWorld(input.positionOS.xyz);
   output.normalWS = normalize(TransformObjectToWorldNormal(input.normalOS));
   // Following part is copied from LitForwardPass.hlsl
@@ -209,8 +213,13 @@ half4 ToonFragmentPBR(InputData inputData, SurfaceData surfaceData) {
 // --------------------------------------------------------------------------
 
 half4 Frag (Varyings input) : SV_Target0 {
-  half4 color = tex2D(_MainTex, input.uv) * _BaseColor;
-  clip(color.a - _AlphaClip * _Cutoff);
+  UNITY_SETUP_INSTANCE_ID(input);
+  half4 color = tex2D(_BaseMap, input.uv);
+#ifdef _ALPHATEST_ON
+  clip(color.a - _Cutoff);
+#endif
+  color *=  _BaseColor;
+#if defined(_WORKFLOWMODE_PBR)
   // Following part is copied from LitForwardPass.hlsl
   InputData inputData = (InputData)0;
   inputData.positionWS = input.positionWS;
@@ -234,5 +243,30 @@ half4 Frag (Varyings input) : SV_Target0 {
   surfaceData.clearCoatSmoothness = 1;
   color = ToonFragmentPBR(inputData, surfaceData);
   // ------------------------------------------------------------------------
+#elif defined(_WORKFLOWMODE_BLINNPHONG)
+  InputData inputData = (InputData)0;
+  inputData.positionWS = input.positionWS;
+  inputData.normalWS = input.normalWS;
+  inputData.normalWS = NormalizeNormalPerPixel(inputData.normalWS);
+  half3 viewDirWS = GetWorldSpaceNormalizeViewDir(input.positionWS);
+  inputData.viewDirectionWS = viewDirWS;
+  inputData.normalizedScreenSpaceUV = GetNormalizedScreenSpaceUV(input.positionCS);
+  inputData.shadowCoord = TransformWorldToShadowCoord(inputData.positionWS);
+  InitializeBakedGIData(input, inputData);
+  SurfaceData surfaceData;
+  surfaceData.albedo = color.rgb;
+  surfaceData.alpha = color.a;
+  surfaceData.emission = half3(0, 0, 0);
+  surfaceData.metallic = 0;
+  surfaceData.occlusion = 1;
+  surfaceData.smoothness = _Smoothness;
+  surfaceData.specular = _Specular;
+  surfaceData.clearCoatMask = 0;
+  surfaceData.clearCoatSmoothness = 1;
+  surfaceData.normalTS = half3(0, 0, 1);
+  color = UniversalFragmentBlinnPhong(inputData, surfaceData);
+#else
+  color *= half4(MainLightShadow(TransformWorldToShadowCoord(input.positionWS), input.positionWS, half4(1, 1, 1, 1), _MainLightOcclusionProbes) * saturate(dot(_MainLightPosition.xyz, input.normalWS)) * _MainLightColor.rgb, 1);
+#endif
   return color;
 }

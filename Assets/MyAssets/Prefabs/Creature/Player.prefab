@@ -6077,6 +6077,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 7401621017225146365, guid: de76d67d0ab88dc439b10b32370775ea, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1f89995f298deb344981adf40b066bca, type: 2}
     - target: {fileID: 7422788233372283023, guid: de76d67d0ab88dc439b10b32370775ea, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.821686e-11
@@ -6435,6 +6439,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8408109709729633621, guid: a250c778e48c73742ae531b8c9a9bd17, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 91144c33ad37e4f4db006815a2016f4b, type: 2}
     m_RemovedComponents:
     - {fileID: 417134569252294082, guid: a250c778e48c73742ae531b8c9a9bd17, type: 3}
     m_RemovedGameObjects: []

@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.RenderGraphModule;
-using UnityEngine.Rendering.RenderGraphModule.Util;
 using UnityEngine.Rendering.Universal;
 [Serializable]
 public class BloomFeature : ScriptableRendererFeature {
@@ -12,12 +10,16 @@ public class BloomFeature : ScriptableRendererFeature {
   public int bloomTimes = 5;
   [Serializable]
   public class BloomPass : ScriptableRenderPass {
+    public Material material;
+    public Material materialBlurX;
+    public Material materialBlurY;
     public float bloomThreshold;
     public float bloomIntensity;
     public int bloomTimes;
     [Serializable]
     class PassData {
       public Material material;
+      public MaterialPropertyBlock properties;
       public TextureHandle texture;
     }
     public override void RecordRenderGraph(RenderGraph renderGraph, ContextContainer frameContext) {
@@ -41,81 +43,99 @@ public class BloomFeature : ScriptableRendererFeature {
       var texture1 = renderGraph.CreateTexture(textureDesc);
       textureDesc.name = "BloomTexture2";
       var texture2 = renderGraph.CreateTexture(textureDesc);
-      renderGraph.AddBlitPass(resourceData.activeColorTexture, texture1, new Vector2(1.0f, 1.0f), new Vector2(0.0f, 0.0f), 0, 0, -1, 0, 0, 1);
+      // renderGraph.AddBlitPass(resourceData.activeColorTexture, texture1, new Vector2(1.0f, 1.0f), new Vector2(0.0f, 0.0f), 0, 0, -1, 0, 0, 1);
       // can not read a mip level and write another mip level in same pass
       for (int i = 0; i < bloomTimes; ++i) {
-        int layer = i;
         using (var builder = renderGraph.AddRasterRenderPass("BloomDownsamplePass",
             out PassData passData)) {
-          passData.material = new Material(Shader.Find("Custom/BloomShader"));
-          passData.material.SetFloat("_BloomThreshold", bloomThreshold);
-          passData.texture = texture1;
-          builder.SetRenderAttachment(texture2, 0, AccessFlags.WriteAll, layer + 1, -1);
-          builder.SetInputAttachment(texture1, 0, AccessFlags.Read, layer, -1);
-          builder.SetRenderFunc((PassData data, RasterGraphContext context) => {
-            data.material.SetTexture("_MainTex", data.texture);
-            data.material.SetInt("_MipLevel", layer);
-            context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 0, MeshTopology.Triangles, 3);
+          passData.material = material;
+          MaterialPropertyBlock properties = new();
+          properties.SetFloat("_BloomThreshold", bloomThreshold);
+          properties.SetInt("_MipLevel", i);
+          passData.properties = properties;
+          if (i == 0) {
+            passData.texture = resourceData.activeColorTexture;
+            builder.UseTexture(resourceData.activeColorTexture);
+          } else {
+            passData.texture = texture1;
+            builder.UseTexture(texture1);
+          }
+          builder.SetRenderAttachment(texture2, 0, AccessFlags.WriteAll, i + 1, -1);
+          builder.SetRenderFunc(static (PassData data, RasterGraphContext context) => {
+            data.properties.SetTexture("_MainTex", data.texture);
+            context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 0, MeshTopology.Triangles, 3, 1, data.properties);
           });
         }
-        // renderGraph.AddBlitPass(texture2, texture1, new Vector2(1.0f, 1.0f), new Vector2(0.0f, 0.0f), 0, 0, -1, layer + 1, layer + 1, 1);
         (texture1, texture2) = (texture2, texture1);
       }
       for (int i = bloomTimes; i > 0; --i) {
-        int layer = i;
         using (var builder = renderGraph.AddRasterRenderPass("BloomBlurPass1",
             out PassData passData)) {
-          passData.material = new Material(Shader.Find("Custom/BloomShader"));
-          passData.material.SetInt("_BlurType", 1);
+          passData.material = materialBlurX;
+          MaterialPropertyBlock properties = new();
+          properties.SetInt("_MipLevel", i);
+          passData.properties = properties;
           passData.texture = texture1;
-          builder.SetRenderAttachment(texture2, 0, AccessFlags.WriteAll, layer, -1);
-          builder.SetInputAttachment(texture1, 0, AccessFlags.Read, layer, -1);
-          builder.SetRenderFunc((PassData data, RasterGraphContext context) => {
-            data.material.SetTexture("_MainTex", data.texture);
-            data.material.SetInt("_MipLevel", layer);
-            context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 1, MeshTopology.Triangles, 3);
+          builder.UseTexture(texture1);
+          builder.SetRenderAttachment(texture2, 0, AccessFlags.WriteAll, i, -1);
+          builder.SetRenderFunc(static (PassData data, RasterGraphContext context) => {
+            data.properties.SetTexture("_MainTex", data.texture);
+            context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 1, MeshTopology.Triangles, 3, 1, data.properties);
           });
         }
         using (var builder = renderGraph.AddRasterRenderPass("BloomBlurPass2",
             out PassData passData)) {
-          passData.material = new Material(Shader.Find("Custom/BloomShader"));
-          passData.material.SetInt("_BlurType", 2);
+          passData.material = materialBlurY;
+          MaterialPropertyBlock properties = new();
+          properties.SetInt("_MipLevel", i);
+          passData.properties = properties;
           passData.texture = texture2;
-          builder.SetRenderAttachment(texture1, 0, AccessFlags.WriteAll, layer, -1);
-          builder.SetInputAttachment(texture2, 0, AccessFlags.Read, layer, -1);
-          builder.SetRenderFunc((PassData data, RasterGraphContext context) => {
-            data.material.SetTexture("_MainTex", data.texture);
-            data.material.SetInt("_MipLevel", layer);
-            context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 1, MeshTopology.Triangles, 3);
+          builder.UseTexture(texture2);
+          builder.SetRenderAttachment(texture1, 0, AccessFlags.WriteAll, i, -1);
+          builder.SetRenderFunc(static (PassData data, RasterGraphContext context) => {
+            data.properties.SetTexture("_MainTex", data.texture);
+            context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 1, MeshTopology.Triangles, 3, 1, data.properties);
           });
         }
-        // renderGraph.AddBlitPass(texture1, texture2, new Vector2(1.0f, 1.0f), new Vector2(0.0f, 0.0f), 0, 0, -1, layer, layer, 1);
         using (var builder = renderGraph.AddRasterRenderPass("BloomUpsamplePass",
             out PassData passData)) {
-          passData.material = new Material(Shader.Find("Custom/BloomShader"));
-          passData.material.SetFloat("_BloomIntensity", bloomIntensity / (1.0f + bloomIntensity));
+          passData.material = material;
+          MaterialPropertyBlock properties = new();
+          properties.SetFloat("_BloomIntensity", bloomIntensity / (1.0f + bloomIntensity));
+          properties.SetInt("_MipLevel", i);
+          passData.properties = properties;
           passData.texture = texture1;
-          builder.SetRenderAttachment(texture2, 0, AccessFlags.WriteAll, layer - 1, -1);
-          builder.SetInputAttachment(texture1, 0, AccessFlags.Read, layer, -1);
-          builder.SetRenderFunc((PassData data, RasterGraphContext context) => {
-            // context.cmd.ClearRenderTarget(false, true, Color.clear);
-            data.material.SetTexture("_MainTex", data.texture);
-            data.material.SetInt("_MipLevel", layer);
-            context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 2, MeshTopology.Triangles, 3);
+          builder.UseTexture(texture1);
+          if (i == 1) {
+            builder.SetRenderAttachment(resourceData.activeColorTexture, 0, AccessFlags.Write, i - 1, -1);
+          } else {
+            builder.SetRenderAttachment(texture2, 0, AccessFlags.Write, i - 1, -1);
+          }
+          builder.SetRenderFunc(static (PassData data, RasterGraphContext context) => {
+            data.properties.SetTexture("_MainTex", data.texture);
+            context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 2, MeshTopology.Triangles, 3, 1, data.properties);
           });
         }
         (texture1, texture2) = (texture2, texture1);
       }
-      renderGraph.AddBlitPass(texture1, resourceData.activeColorTexture, new Vector2(1.0f, 1.0f), new Vector2(0.0f, 0.0f), 0, 0, -1, 0, 0, 1);
+      // renderGraph.AddBlitPass(texture1, resourceData.activeColorTexture, new Vector2(1.0f, 1.0f), new Vector2(0.0f, 0.0f), 0, 0, -1, 0, 0, 1);
     }
   }
   private BloomPass bloomPass;
   public override void Create() {
+    Shader shader = Shader.Find("Custom/BloomShader");
+    Material materialX = new(shader);
+    materialX.EnableKeyword("BLUR_X");
+    Material materialY = new(shader);
+    materialY.EnableKeyword("BLUR_Y");
     bloomPass = new BloomPass() {
       renderPassEvent = RenderPassEvent.BeforeRenderingPostProcessing - 10,
+      material = materialX,
+      materialBlurX = materialX,
+      materialBlurY = materialY,
       bloomThreshold = bloomThreshold,
       bloomIntensity = bloomIntensity,
-      bloomTimes = Math.Min(Math.Max(bloomTimes, 3), 7)
+      bloomTimes = Math.Min(bloomTimes, 7)
     };
   }
   public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData) {

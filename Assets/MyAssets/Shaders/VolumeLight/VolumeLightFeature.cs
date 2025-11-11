@@ -1,105 +1,95 @@
 using System;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.RenderGraphModule;
 using UnityEngine.Rendering.Universal;
 [Serializable]
 public class VolumeLightFeature : ScriptableRendererFeature {
-  public float intensity = 5;
+  public float intensity = 1;
   public float mieScattering = 0.5f;
   public float extingctionFactor = 0.5f;
   public int blurTimes = 4;
+  public float bilateralFilterStandardDeviation = 0.01f;
   [Serializable]
   public class VolumeLightPass : ScriptableRenderPass {
+    public Material material;
     public float intensity;
     public float mieScattering;
     public float extingctionFactor;
     public int blurTimes;
+    public float deviation;
     [Serializable]
     class PassData {
       public Material material;
-      public TextureHandle texture1;
-      public TextureHandle texture2;
+      public MaterialPropertyBlock properties;
+      public TextureHandle texture;
     }
     public override void RecordRenderGraph(RenderGraph renderGraph, ContextContainer frameContext) {
-      string volumeLightMarchingPassName = "VolumeLightMarchingPass";
-      string volumeLightBlurPassName = "VolumeLightBlurPass";
-      string volumeLightBlendPassName = "VolumeLightBlendPass";
       var resourceData = frameContext.Get<UniversalResourceData>();
-      Material material = new(Shader.Find("Custom/VolumeLightShader"));
-      material.SetFloat("_Intensity", intensity);
-      material.SetFloat("_MieScattering", mieScattering);
-      material.SetFloat("_ExtingctionFactor", extingctionFactor);
       var activeColorTexture = resourceData.activeColorTexture;
       var textureDesc = resourceData.activeColorTexture.GetDescriptor(renderGraph);
-      // if (rthTexture1 == null || !rthTexture1.rt.IsCreated()) {
-      //   RTHandles.Release(rthTexture1);
-      //   RTHandles.Release(rthTexture2);
-      //   rthTexture1 = RTHandles.Alloc(textureDesc.width, textureDesc.height, GraphicsFormat.R16_SFloat, filterMode: FilterMode.Bilinear, wrapMode: TextureWrapMode.Clamp, useDynamicScale: true, name: "VolumeLightTexture1");
-      //   rthTexture2 = RTHandles.Alloc(textureDesc.width, textureDesc.height, GraphicsFormat.R16_SFloat, useDynamicScale: true, name: "VolumeLightTexture2");
-      // }
-      // var texture1 = renderGraph.ImportTexture(rthTexture1);
-      // var texture2 = renderGraph.ImportTexture(rthTexture2);
+      textureDesc.width /= 2;
+      textureDesc.height /= 2;
+      textureDesc.format = UnityEngine.Experimental.Rendering.GraphicsFormat.R16_SFloat;
       textureDesc.name = "VolumeLightTexture1";
       var texture1 = renderGraph.CreateTexture(textureDesc);
       textureDesc.name = "VolumeLightTexture2";
       var texture2 = renderGraph.CreateTexture(textureDesc);
-      using (var builder = renderGraph.AddRasterRenderPass(volumeLightMarchingPassName,
+      using (var builder = renderGraph.AddRasterRenderPass("VolumeLightMarchingPass",
           out PassData passData)) {
         passData.material = material;
-        builder.SetRenderAttachmentDepth(resourceData.activeDepthTexture, AccessFlags.Read);
+        MaterialPropertyBlock properties = new();
+        properties.SetFloat("_MieScattering", mieScattering);
+        properties.SetFloat("_ExtingctionFactor", extingctionFactor);
+        passData.properties = properties;
+        passData.texture = resourceData.activeDepthTexture;
+        builder.UseTexture(resourceData.activeDepthTexture, AccessFlags.Read);
         builder.SetRenderAttachment(texture1, 0, AccessFlags.WriteAll);
         builder.SetRenderFunc(static (PassData data, RasterGraphContext context) => {
-          context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 0, MeshTopology.Triangles, 3);
+          data.properties.SetTexture("_MainTex", data.texture);
+          context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 0, MeshTopology.Triangles, 3, 1, data.properties);
         });
       }
-      for (int i = 0, blurStep = 1; i < blurTimes; ++i, blurStep <<= 1) {
-        int tempBlurStep = blurStep;
-        using (var builder = renderGraph.AddRasterRenderPass(volumeLightBlurPassName,
+      for (int i = 0, blurStep = 1; i < blurTimes; ++i, blurStep <<= 2) {
+        using (var builder = renderGraph.AddRasterRenderPass("VolumeLightBlurPass",
             out PassData passData)) {
           passData.material = material;
-          passData.texture1 = texture1;
-          builder.SetInputAttachment(texture1, 0);
-          builder.SetRenderAttachment(texture2, 0, AccessFlags.WriteAll);
-          builder.SetRenderFunc((PassData data, RasterGraphContext context) => {
-            data.material.SetTexture("_MainTex", data.texture1);
-            data.material.SetInt("_BlurStep", tempBlurStep);
-            context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 1, MeshTopology.Triangles, 3);
-          });
+          MaterialPropertyBlock properties = new();
+          properties.SetInt("_BlurStep", blurStep);
+          properties.SetFloat("_Deviation", deviation);
+          passData.properties = properties;
+          passData.texture = texture1;
+          builder.UseTexture(texture1);
+          if (i == blurTimes - 1) {
+            properties.SetFloat("_Intensity", intensity);
+            builder.SetRenderAttachment(resourceData.activeColorTexture, 0, AccessFlags.Write);
+            builder.SetRenderFunc(static (PassData data, RasterGraphContext context) => {
+              data.properties.SetTexture("_MainTex", data.texture);
+              context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 2, MeshTopology.Triangles, 3, 1, data.properties);
+            });
+          } else {
+            builder.SetRenderAttachment(texture2, 0, AccessFlags.WriteAll);
+            builder.SetRenderFunc(static (PassData data, RasterGraphContext context) => {
+              data.properties.SetTexture("_MainTex", data.texture);
+              context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 1, MeshTopology.Triangles, 3, 1, data.properties);
+            });
+          }
         }
-        using (var builder = renderGraph.AddRasterRenderPass(volumeLightBlurPassName,
-            out PassData passData)) {
-          passData.material = material;
-          passData.texture2 = texture2;
-          builder.SetInputAttachment(texture2, 0);
-          builder.SetRenderAttachment(texture1, 0, AccessFlags.WriteAll);
-          builder.SetRenderFunc(static (PassData data, RasterGraphContext context) => {
-            Blitter.BlitTexture(context.cmd, data.texture2, new Vector4(1, 1, 0, 0), 0, true);
-          });
-        }
-      }
-      using (var builder = renderGraph.AddRasterRenderPass(volumeLightBlendPassName,
-          out PassData passData)) {
-        passData.material = material;
-        passData.texture1 = texture1;
-        builder.SetInputAttachment(texture1, 0);
-        builder.SetRenderAttachment(resourceData.activeColorTexture, 0, AccessFlags.WriteAll);
-        builder.SetRenderFunc(static (PassData data, RasterGraphContext context) => {
-          data.material.SetTexture("_MainTex", data.texture1);
-          context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 2, MeshTopology.Triangles, 3);
-        });
+        (texture1, texture2) = (texture2, texture1);
       }
     }
   }
   private VolumeLightPass volumeLightPass;
   public override void Create() {
+    Material material = new(Shader.Find("Custom/VolumeLightShader"));
     volumeLightPass = new VolumeLightPass() {
       renderPassEvent = RenderPassEvent.BeforeRenderingPostProcessing,
+      blurTimes = Mathf.Max(blurTimes, 1),
+      material = material,
       intensity = intensity,
       mieScattering = mieScattering,
       extingctionFactor = extingctionFactor,
-      blurTimes = blurTimes
+      deviation = bilateralFilterStandardDeviation
     };
   }
   public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData) {

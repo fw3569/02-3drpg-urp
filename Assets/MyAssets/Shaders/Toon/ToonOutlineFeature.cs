@@ -17,33 +17,29 @@ public class ToonOutlineFeature : ScriptableRendererFeature {
   [Serializable]
   public class ToonOutlinePass : ScriptableRenderPass {
     public OutlineType outlineType;
-    public float edgeThresholdColor;
-    public float edgeThresholdDepth;
+    public Material post_material;
     [Serializable]
     class PassData {
       public RendererListHandle rendererListHandle;
       public Material material;
       public TextureHandle colorTexture;
       public TextureHandle depthTexture;
-      public float edgeThresholdColor;
-      public float edgeThresholdDepth;
     }
     public void AddOutlineFowardPass(RenderGraph renderGraph, ContextContainer frameContext) {
       string passName = "ToonOutlineForwardPass";
       var renderingData = frameContext.Get<UniversalRenderingData>();
       var resourceData = frameContext.Get<UniversalResourceData>();
       var desc = new RendererListDesc(
-        // use with override shader or material to work for all objects
-        new[] { new ShaderTagId(passName), new ShaderTagId("UniversalForward") },
-        // new ShaderTagId(passName),
+        // use ShaderTagId("UniversalForward") with override shader or material can work for objects what ever the origin material is, but break SRP Batcher
+        new[] { new ShaderTagId(passName)/* , new ShaderTagId("UniversalForward")  */},
         renderingData.cullResults,
         frameContext.Get<UniversalCameraData>().camera
       ) {
         sortingCriteria = SortingCriteria.CommonOpaque,
         renderQueueRange = RenderQueueRange.all,
         layerMask = ~LayerMask.GetMask("Ignore"),
-        overrideShader = Shader.Find("Custom/ToonShader"),
-        overrideShaderPassIndex = 1
+        // overrideShader = Shader.Find("Custom/ToonShader"),
+        // overrideShaderPassIndex = 1
       };
       var rendererListHandle = renderGraph.CreateRendererList(desc);
       using (var builder = renderGraph.AddRasterRenderPass(passName,
@@ -53,7 +49,6 @@ public class ToonOutlineFeature : ScriptableRendererFeature {
         builder.UseRendererList(rendererListHandle);
         builder.SetRenderAttachment(resourceData.activeColorTexture, 0);
         builder.SetRenderFunc(static (PassData data, RasterGraphContext context) => {
-          // context.cmd.ClearRenderTarget(true, true, Color.white);
           context.cmd.DrawRendererList(data.rendererListHandle);
         });
       }
@@ -67,18 +62,14 @@ public class ToonOutlineFeature : ScriptableRendererFeature {
       renderGraph.AddBlitPass(resourceData.activeColorTexture, texture, new Vector2(1.0f, 1.0f), new Vector2(0.0f, 0.0f));
       using (var builder = renderGraph.AddRasterRenderPass(passName,
           out PassData passData)) {
-        passData.material = new Material(Shader.Find("Custom/ToonShader"));
+        passData.material = post_material;
         passData.colorTexture = texture;
         passData.depthTexture = resourceData.activeDepthTexture;
-        passData.edgeThresholdColor = edgeThresholdColor;
-        passData.edgeThresholdDepth = edgeThresholdDepth;
         builder.SetRenderAttachment(resourceData.activeColorTexture, 0, AccessFlags.WriteAll);
-        builder.SetInputAttachment(passData.colorTexture, 0);
+        builder.UseTexture(passData.colorTexture, 0);
         builder.SetRenderFunc(static (PassData data, RasterGraphContext context) => {
-          data.material.SetTexture("_MainTex", data.colorTexture);
+          data.material.SetTexture("_BaseMap", data.colorTexture);
           data.material.SetTexture("_DepthTex", data.depthTexture);
-          data.material.SetFloat("_EdgeThresholdColor", data.edgeThresholdColor);
-          data.material.SetFloat("_EdgeThresholdDepth", data.edgeThresholdDepth);
           context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 5, MeshTopology.Triangles, 3);
         });
       }
@@ -93,11 +84,13 @@ public class ToonOutlineFeature : ScriptableRendererFeature {
   }
   private ToonOutlinePass outlinePass;
   public override void Create() {
+    Material post_material = new(Shader.Find("Custom/ToonShader"));
+    post_material.SetFloat("_EdgeThresholdColor", edgeThresholdColor);
+    post_material.SetFloat("_EdgeThresholdDepth", edgeThresholdDepth);
     outlinePass = new ToonOutlinePass() {
-      renderPassEvent = RenderPassEvent.AfterRenderingOpaques,
+      renderPassEvent = RenderPassEvent.AfterRenderingSkybox,
       outlineType = outlineType,
-      edgeThresholdColor = edgeThresholdColor,
-      edgeThresholdDepth = edgeThresholdDepth
+      post_material = post_material
     };
   }
   public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData) {

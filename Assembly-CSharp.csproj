@@ -83,21 +83,27 @@
     <None Include="Assets\Fantasy Forest Environment Free Sample\StandardNoCulling.shader" />
     <None Include="Assets\Polytope Studio\Lowpoly_Environments\Sources\Shaders\PT_Vegetation_Plants_Shader.shader" />
     <None Include="Assets\MyAssets\Shaders\Utils\SimpleTransparentShader.shader" />
+    <None Include="Assets\MeshBaker\Resources\Shaders\AlbedoShader.shader" />
+    <None Include="Assets\MeshBaker\Release Notes.txt" />
     <None Include="Assets\MyAssets\Shaders\Toon\ToonDepthPass.hlsl" />
     <None Include="Assets\Polytope Studio\Lowpoly_Village\Sources\Shaders\PT_Buildings_Shader_PBR.shader" />
     <None Include="Assets\MyAssets\Shaders\Bloom\BloomDownsamplePass.hlsl" />
+    <None Include="Assets\MeshBaker\Resources\Shaders\UnlitWithAlpha.shader" />
     <None Include="Assets\Polytope Studio\Lowpoly_Environments\Sources\Shaders\PT_Vegetation_Opaque_Shader.shader" />
     <None Include="Assets\Polytope Studio\Lowpoly_Environments\Sources\Shaders\PT_Vegetation_Foliage_Shader.shader" />
     <None Include="Assets\MyAssets\Shaders\VolumeLight\VolumeLightShader.shader" />
-    <None Include="Assets\MyAssets\Shaders\VolumeLight\VolumeLightBlendPass.hlsl" />
-    <None Include="Assets\MyAssets\Shaders\Toon\ToonShader 1.shader" />
     <None Include="Assets\Polytope Studio\Lowpoly_Environments\Sources\Shaders\PT_Water_Shader.shader" />
     <None Include="Assets\Polytope Studio\Lowpoly_Environments\Sources\Shaders\PT_Vegetation_Flowers_Shader.shader" />
+    <None Include="Assets\MeshBaker\Resources\Shaders\NormalMapShaderSwizzle.shader" />
     <None Include="Assets\MyAssets\Shaders\Bloom\BloomShader.shader" />
     <None Include="Assets\MyAssets\Shaders\Fog\FogPass.hlsl" />
+    <None Include="Assets\MeshBaker\Libs\MeshBakerLib.dll" />
     <None Include="Assets\MyAssets\Shaders\Fog\FogShader.shader" />
+    <None Include="Assets\MeshBaker\MeshBakerWorkingFolder\DONT_DELETE.txt" />
     <None Include="Assets\Stylized NPC - Peasant Nolant\README.txt" />
     <None Include="Assets\MyAssets\Shaders\Toon\ToonShader.shader" />
+    <None Include="Assets\MeshBaker\README.txt" />
+    <None Include="Assets\MeshBaker\Resources\Shaders\NormalMapShader.shader" />
     <None Include="Assets\MyAssets\Shaders\Toon\ToonOutlineForwardPass.hlsl" />
     <None Include="Assets\MyAssets\Shaders\Toon\ToonForwardPass.hlsl" />
     <None Include="Assets\8Bit Music - 062022\Notes.txt" />
@@ -105,6 +111,7 @@
     <None Include="Assets\Polytope Studio\Lowpoly_Environments\Sources\Shaders\PT_Rock_Shader.shader" />
     <None Include="Assets\MyAssets\Shaders\Toon\ToonOutlinePostPass.hlsl" />
     <None Include="Assets\MyAssets\Shaders\VolumeLight\VolumeLightBlurPass.hlsl" />
+    <None Include="Assets\MeshBaker\Libs\MeshBakerEditorLib.dll" />
     <None Include="Assets\MyAssets\Shaders\VolumeLight\VolumeLightMarchingPass.hlsl" />
   </ItemGroup>
   <ItemGroup>
@@ -596,12 +603,20 @@
       <HintPath>Library\PackageCache\com.unity.visualscripting@6279e2b7c485\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="MeshBakerLib">
+      <HintPath>Assets\MeshBaker\Libs\MeshBakerLib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@d78732e851eb\Mono.Cecil.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
       <HintPath>Library\PackageCache\com.unity.collections@aea9d3bd5e19\Unity.Collections.Tests\System.Runtime.CompilerServices.Unsafe\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MeshBakerEditorLib">
+      <HintPath>Assets\MeshBaker\Libs\MeshBakerEditorLib.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
@@ -1160,12 +1175,12 @@
       <HintPath>Library\ScriptAssemblies\Unity.VisualEffectGraph.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.Multiplayer.Center.Common">
       <HintPath>Library\ScriptAssemblies\Unity.Multiplayer.Center.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
@@ -1206,6 +1221,7 @@
     <ProjectReference Include="Unity.Animation.Rigging.Editor.csproj" />
     <ProjectReference Include="Unity.Timeline.Editor.csproj" />
     <ProjectReference Include="Unity.Timeline.csproj" />
+    <ProjectReference Include="MeshBakerCore.csproj" />
     <ProjectReference Include="Unity.Toonshader.Editor.csproj" />
     <ProjectReference Include="Unity.PlasticSCM.Editor.csproj" />
     <ProjectReference Include="Unity.Mathematics.Editor.csproj" />
@@ -1213,12 +1229,14 @@
     <ProjectReference Include="Unity.FilmInternalUtilities.csproj" />
     <ProjectReference Include="Autodesk.Fbx.csproj" />
     <ProjectReference Include="Unity.Collections.csproj" />
+    <ProjectReference Include="MeshBakerExamples.csproj" />
     <ProjectReference Include="Unity.VisualScripting.Core.csproj" />
     <ProjectReference Include="Unity.Collections.Editor.csproj" />
     <ProjectReference Include="Unity.Animation.Rigging.csproj" />
     <ProjectReference Include="Unity.VisualScripting.Shared.Editor.csproj" />
     <ProjectReference Include="Unity.VisualScripting.Core.Editor.csproj" />
     <ProjectReference Include="Unity.AI.Navigation.Updater.csproj" />
+    <ProjectReference Include="MeshBakerEditor.csproj" />
     <ProjectReference Include="Unity.Toonshader.csproj" />
     <ProjectReference Include="Unity.VisualScripting.Flow.Editor.csproj" />
     <ProjectReference Include="Autodesk.Fbx.Editor.csproj" />
