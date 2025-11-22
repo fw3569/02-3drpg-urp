@@ -13,6 +13,7 @@ Shader "Custom/ToonShader" {
     _LightThreshold1("Light Threshold1", Range(-1, 1)) =-0.3
     _LightingIntensity0("Lighting Intensity0", Range(0, 1)) = 0.5
     _LightingIntensity1("Lighting Intensity1", Range(0, 1)) = 0.2
+    _LightingIntensity2("Lighting Intensity2", Range(0, 1)) = 0.0
     _ToonSmoothness("Toon Smoothness", Range(0, 1)) = 0.3
     [HideInInspector] _DepthTex("_DepthTex", 2D) = "white" {}
     [HideInInspector] _EdgeThresholdColor("_EdgeThresholdColor", Range(0, 1)) = 0.5
@@ -48,6 +49,7 @@ Shader "Custom/ToonShader" {
       float _LightThreshold1;
       float _LightingIntensity0;
       float _LightingIntensity1;
+      float _LightingIntensity2;
       float _ToonSmoothness;
       float _Cull;
     CBUFFER_END

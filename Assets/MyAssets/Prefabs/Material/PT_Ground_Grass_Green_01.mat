@@ -45,15 +45,16 @@ Material:
     - _Cutoff: 0.5
     - _EdgeThresholdColor: 0.5
     - _EdgeThresholdDepth: 0.001
-    - _LightThreshold0: 0.2
-    - _LightThreshold1: -0.3
-    - _LightingIntensity0: 0.5
-    - _LightingIntensity1: 0.2
+    - _LightThreshold0: -0.127
+    - _LightThreshold1: -0.487
+    - _LightingIntensity0: 0.7
+    - _LightingIntensity1: 0.35
+    - _LightingIntensity2: 0.051
     - _Metallic: 0
     - _Smoothness: 0
     - _Specular: 0
     - _Toon: 0
-    - _ToonSmoothness: 0.3
+    - _ToonSmoothness: 0
     - _WorkflowMode: 0
     m_Colors:
     - _BaseColor: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 1}

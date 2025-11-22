@@ -28,7 +28,12 @@ half Frag(Varyings input) : SV_TARGET0 {
   // input.toLightCS = normalize(input.toLightCS);
   input.toLightCS *= _MainTex_TexelSize.xy;
   half color = tex2D(_MainTex, input.uv).r;
+#ifdef BLEND_ON
+  // half colorSum = color * 5/3 - tex2D(_MainTex, input.uv + float2(input.toLightCS.y,input.toLightCS.x)).r/3 - tex2D(_MainTex, input.uv - float2(input.toLightCS.y,input.toLightCS.x)).r/3;
   half colorSum = color;
+#else
+  half colorSum = color;
+#endif
   half wSum = 1;
   float2 blurStep = input.toLightCS * _BlurStep;
   float2 sampleuv = input.xyCS - blurStep;

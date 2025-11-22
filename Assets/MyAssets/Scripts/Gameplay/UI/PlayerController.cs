@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour {
   [SerializeField] private Vector2 m_move_acceleration = new(5.0f, 5.0f);
   private InputAction m_look_action;
   [SerializeField] private float m_camera_speed = 0.1f;
+  [SerializeField] private float m_camera_height = 1.3f;
+  [SerializeField] private float m_camera_distance = 5f;
   private Vector2 look_forward = new(0.0f, 0.0f);
   private InputAction m_attack_action;
   private float m_attack_active_time = 0.0f;
@@ -97,8 +99,12 @@ public class PlayerController : MonoBehaviour {
   }
   void LateUpdate() {
     look_forward += m_look_action.ReadValue<Vector2>() * m_camera_speed;
-    look_forward.y = Mathf.Min(look_forward.y, 18f);
+    look_forward.y = Mathf.Min(look_forward.y, 40f);
     look_forward.y = Mathf.Max(look_forward.y, -40f);
-    Camera.main.transform.parent.rotation = Quaternion.Euler(-look_forward.y, look_forward.x, 0.0f);
+    Camera.main.transform.rotation = Quaternion.Euler(-look_forward.y, look_forward.x, 0.0f);
+    Camera.main.transform.position = Camera.main.transform.parent.position - Camera.main.transform.forward * m_camera_distance;
+    if (Camera.main.transform.localPosition.y < -m_camera_height) {
+      Camera.main.transform.localPosition *= -m_camera_height / Camera.main.transform.localPosition.y;
+    }
   }
 }

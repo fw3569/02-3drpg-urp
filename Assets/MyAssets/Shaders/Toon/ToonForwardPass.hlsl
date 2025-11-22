@@ -62,20 +62,20 @@ half3 ToonLightingPhysicallyBased(BRDFData brdfData, BRDFData brdfDataClearCoat,
 // TBD AO
 #ifdef _Toon
   half lightingIntensity;
-  float threshold0 =_LightThreshold0 + 0.5 * _ToonSmoothness * (1 - _LightingIntensity0);
-  float threshold1 =_LightThreshold0 - 0.5 * _ToonSmoothness * (1 - _LightingIntensity0);
-  float threshold2 =_LightThreshold1 + 0.5 * _ToonSmoothness * (_LightingIntensity0 - _LightingIntensity1);
-  float threshold3 =_LightThreshold1 - 0.5 * _ToonSmoothness * (_LightingIntensity0 - _LightingIntensity1);
+  float threshold0 =_LightThreshold0 + 0.5 * _ToonSmoothness * (_LightingIntensity0 - _LightingIntensity1);
+  float threshold1 =_LightThreshold0 - 0.5 * _ToonSmoothness * (_LightingIntensity0 - _LightingIntensity1);
+  float threshold2 =_LightThreshold1 + 0.5 * _ToonSmoothness * (_LightingIntensity1 - _LightingIntensity2);
+  float threshold3 =_LightThreshold1 - 0.5 * _ToonSmoothness * (_LightingIntensity1 - _LightingIntensity2);
   if(NdotL > threshold0) {
-    lightingIntensity = 1;
-  } else if(NdotL > threshold1) {
-    lightingIntensity = lerp(_LightingIntensity0, 1, (NdotL - threshold1) / (threshold0 - threshold1));
-  } else if(NdotL > threshold2) {
     lightingIntensity = _LightingIntensity0;
-  } else if(NdotL > threshold3) {
-    lightingIntensity = lerp(_LightingIntensity1, _LightingIntensity0, (NdotL - threshold3) / (threshold2 - threshold3));
-  } else {
+  } else if(NdotL > threshold1) {
+    lightingIntensity = lerp(_LightingIntensity1, _LightingIntensity0, (NdotL - threshold1) / (threshold0 - threshold1));
+  } else if(NdotL > threshold2) {
     lightingIntensity = _LightingIntensity1;
+  } else if(NdotL > threshold3) {
+    lightingIntensity = lerp(_LightingIntensity2, _LightingIntensity1, (NdotL - threshold3) / (threshold2 - threshold3));
+  } else {
+    lightingIntensity = _LightingIntensity2;
   }
   radiance = lightColor * (lightingIntensity * lightAttenuation);
 #endif

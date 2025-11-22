@@ -42,6 +42,13 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
+    - _LightThreshold0: -0.127
+    - _LightThreshold1: -0.487
+    - _LightingIntensity0: 0.7
+    - _LightingIntensity1: 0.35
+    - _LightingIntensity2: 0.051
+    - _Toon: 0
+    - _ToonSmoothness: 0
     - _WorkflowMode: 1
     m_Colors: []
   m_BuildTextureStacks: []
