@@ -54,7 +54,7 @@ https://private-user-images.githubusercontent.com/70421410/517791496-4aa29ee3-dd
 6. 考虑使用mesh baker等工具合并网格，这适用于一些复杂而聚集的模型。我的情况不适用，它导致剔除效果下降反而增加了开销。
 7. 减少不必要的blit操作。
 8. 尝试改变排序SortingCriteria。
-9. 考虑是否可以使用half pixel。
+9. 考虑是否可以使用半尺寸纹理。
 10. 考虑能否使用小的低精度的少通道的texture，减少数据传输。
 11. 尽量减少绘制区域，比如我关闭了天空盒上的体积光。
 12. 尽量避免打断early z，考虑是否可以用alpha混合代替alpha裁剪，实在需要也要设置条件编译。
